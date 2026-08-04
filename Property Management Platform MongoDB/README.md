@@ -55,27 +55,64 @@ The **Property Management Platform** is a full-featured web application designed
 ## 📂 Directory Structure
 
 ```text
-├── assets/                  # Static assets (property & amenity images)
+Property Management Platform (MongoDB)/
+│
+├── .vite/
+│   └── deps_temp_f82dd47a/package.json
+│
+├── assets/
+│   ├── amenities/
+│   │   ├── badminton 1.avif
+│   │   ├── badminton 2.jpg
+│   │   ├── badminton 3.jpg
+│   │   ├── cricket 1.avif
+│   │   ├── cricket 2.jpg
+│   │   ├── gym 1.avif
+│   │   ├── indoor gaming 1.png
+│   │   ├── party hall 1.avif
+│   │   ├── party hall 2.jpg
+│   │   ├── swimming pool 1.avif
+│   │   ├── swimming pool 2.avif
+│   │   └── swimming pool 3.png
+│   │
+│   └── properties/
+│       ├── apartment 1.avif
+│       ├── apartment 2.avif
+│       ├── apartment 3.jpg
+│       ├── apartment 4.jpg
+│       ├── apartment 5.jpg
+│       └── apartment 6.jpg
+│
 ├── src/
-│   ├── components/          # React UI views & components
-│   │   ├── Navbar.tsx             # Top navigation & notifications header
-│   │   ├── Dashboard.tsx          # Overview dashboard with key stats & actions
-│   │   ├── PropertiesView.tsx     # Property listings, towers, & move workflows
-│   │   ├── MaintenanceView.tsx    # Issue tracking & staff assignment
-│   │   ├── AmenitiesView.tsx      # Facility booking calendar & management
-│   │   ├── UsersView.tsx          # Admin user directory & approval center
-│   │   ├── NotificationsView.tsx  # User notification inbox
-│   │   ├── AuthModal.tsx          # Login & registration modal
-│   │   └── ProfileModal.tsx       # User profile & password management
-│   ├── App.tsx              # Main React application entry & state wrapper
-│   ├── main.tsx             # React DOM root render
-│   ├── types.ts             # Global TypeScript interfaces & data models
-│   └── index.css            # Tailwind CSS styling entry
-├── server.ts                # Express REST API backend & Vite integration
-├── db.ts                    # MongoDB connection & persistence fallback sync engine
-├── package.json             # NPM dependencies & build scripts
-├── vite.config.ts           # Vite configuration
-└── metadata.json            # Application metadata
+│   ├── components/
+│   │   ├── AmenitiesView.tsx
+│   │   ├── AuthModal.tsx
+│   │   ├── Dashboard.tsx
+│   │   ├── MaintenanceView.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── NotificationsView.tsx
+│   │   ├── ProfileModal.tsx
+│   │   ├── PropertiesView.tsx
+│   │   └── UsersView.tsx
+│   │
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── types.ts
+│
+├── .env
+├── .env.example
+├── .gitignore
+├── README.md
+├── bun.lock
+├── db.ts
+├── index.html
+├── metadata.json
+├── package-lock.json
+├── package.json
+├── server.ts
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ---
@@ -182,4 +219,4 @@ If you have created a new empty repository on GitHub/GitLab and want to push thi
 
 ## 📄 License
 
-This project is released under the **MIT License**
+This project is released under the **MIT License**.
