@@ -1,0 +1,6 @@
+{
+  "name": "Property Management Platform",
+  "description": "Real-time Property Rental, Maintenance & Amenity Management Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

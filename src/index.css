@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base: var(--theme-base);
+  --color-surface: var(--theme-surface);
+  --color-main: var(--theme-main);
+  --color-muted: var(--theme-muted);
+  --color-primary: var(--theme-primary);
+  --color-primary-dark: var(--theme-primary-dark);
+  --color-highlight: var(--theme-highlight);
+  --color-border-main: var(--theme-border-main);
+}
+
+@layer base {
+  :root {
+    --theme-base: #F8F4EC;
+    --theme-surface: #FFFDF8;
+    --theme-main: #4B3621;
+    --theme-muted: #9CA3AF;
+    --theme-border-main: #C7B299;
+    --theme-primary: #C2734F;
+    --theme-primary-dark: #A0522D;
+    --theme-highlight: #D8C3A5;
+  }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--theme-base);
+    color: var(--theme-main);
+  }
+
+  ::selection {
+    background: #D9A790;
+    color: #000000;
+  }
+}
+
+/* Status Badges */
+.status-approved { background-color: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+.status-pending { background-color: #FFF3E0; color: #E65100; border: 1px solid #FFCC80; }
+.status-waiting { background-color: #E3F2FD; color: #1565C0; border: 1px solid #90CAF9; }
+.status-rejected { background-color: #FFEBEE; color: #C62828; border: 1px solid #EF9A9A; }
+.status-movedout { background-color: #F5F5F5; color: #616161; border: 1px solid #E0E0E0; }
+.status-booked { background-color: #F3E5F5; color: #6A1B9A; border: 1px solid #CE93D8; }
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 750ms !important;
+}
