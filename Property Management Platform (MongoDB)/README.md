@@ -218,4 +218,4 @@ If you have created a new empty repository on GitHub/GitLab and want to push thi
 
 ## 📄 License
 
-This project is released under the **MIT License**
+This project is released under the **MIT License**.
