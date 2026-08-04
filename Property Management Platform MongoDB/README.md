@@ -100,7 +100,6 @@ Property Management Platform (MongoDB)/
 │   ├── main.tsx
 │   └── types.ts
 │
-├── .env
 ├── .env.example
 ├── .gitignore
 ├── README.md
