@@ -43,6 +43,7 @@ interface User {
   role: "Admin" | "Owner" | "Tenant" | "Staff";
   status: "Pending" | "Approved" | "Rejected" | "Moved Out" | "Suspended";
   management_security_key?: string;
+  plainManagementSecurityKey?: string;
   dateOfBirth?: string;
   gender?: string;
   propertiesOwned?: string[]; // Property IDs
@@ -183,6 +184,7 @@ const users: User[] = [
     role: "Admin",
     status: "Approved",
     management_security_key: bcrypt.hashSync(process.env.MANAGEMENT_SECURITY_KEY || "special123", 10),
+    plainManagementSecurityKey: process.env.MANAGEMENT_SECURITY_KEY || "special123",
     dateOfBirth: "1980-01-01",
     gender: "Male",
     createdAt: new Date().toISOString()
@@ -632,6 +634,7 @@ app.post("/api/admin/change-management-key", authenticateToken, (req: any, res: 
 
   const hashedKey = bcrypt.hashSync(newSecurityKey.trim(), 10);
   adminUser.management_security_key = hashedKey;
+  adminUser.plainManagementSecurityKey = newSecurityKey.trim();
   ADMIN_SPECIAL_PASSWORD = newSecurityKey.trim();
 
   persistUser(adminUser);
@@ -665,6 +668,9 @@ const DEFAULT_PASSWORD_MAP: Record<string, string> = {
 };
 
 app.get("/api/public/login-credentials", (req, res) => {
+  const adminUser = users.find((u) => u.role === "Admin" && !u.isDeleted);
+  const currentAdminMgmtKey = adminUser?.plainManagementSecurityKey || ADMIN_SPECIAL_PASSWORD || "special123";
+
   const list = users
     .filter((u) => !u.isDeleted)
     .map((u) => {
@@ -676,10 +682,11 @@ app.get("/api/public/login-credentials", (req, res) => {
         email: u.email,
         role: u.role,
         status: u.status,
-        password: u.plainPassword || defaultPass || "(Check Register form)"
+        password: u.plainPassword || defaultPass || "(Check Register form)",
+        managementSecurityKey: u.role === "Admin" ? currentAdminMgmtKey : undefined
       };
     });
-  res.json({ users: list });
+  res.json({ users: list, adminManagementSecurityKey: currentAdminMgmtKey });
 });
 
 // Auth & User APIs

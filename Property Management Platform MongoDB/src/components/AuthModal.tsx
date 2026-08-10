@@ -30,7 +30,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onLoginSuccess, properties
 
   // Login Info / Credentials State
   const [showLoginInfo, setShowLoginInfo] = useState(false);
-  const [credentials, setCredentials] = useState<Array<{ id: string; name: string; email: string; role: string; password?: string; status: string }>>([]);
+  const [credentials, setCredentials] = useState<Array<{ id: string; name: string; email: string; role: string; password?: string; managementSecurityKey?: string; status: string }>>([]);
+  const [adminMgmtKey, setAdminMgmtKey] = useState<string>("");
   const [loadingCredentials, setLoadingCredentials] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showPasswords, setShowPasswords] = useState<Record<string, boolean>>({});
@@ -43,6 +44,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onLoginSuccess, properties
         const data = await res.json();
         if (Array.isArray(data.users)) {
           setCredentials(data.users);
+        }
+        if (data.adminManagementSecurityKey) {
+          setAdminMgmtKey(data.adminManagementSecurityKey);
         }
       }
     } catch (e) {
@@ -530,65 +534,91 @@ export const AuthModal: React.FC<AuthModalProps> = ({ onLoginSuccess, properties
                     <th className="py-1.5 px-2">Member</th>
                     <th className="py-1.5 px-2">Role</th>
                     <th className="py-1.5 px-2">Email</th>
-                    <th className="py-1.5 px-2">Password</th>
+                    <th className="py-1.5 px-2">Password / Keys</th>
                     <th className="py-1.5 px-2 text-right">Action</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-main/20">
-                  {credentials.map((user, idx) => (
-                    <tr key={user.id || idx} className="hover:bg-base/40 transition-colors">
-                      <td className="py-1.5 px-2 font-semibold text-main whitespace-nowrap">{user.name}</td>
-                      <td className="py-1.5 px-2">
-                        <span className={`inline-block px-1.5 py-0.5 rounded-md text-[10px] font-bold ${
-                          user.role === 'Admin' ? 'bg-purple-100 text-purple-800' :
-                          user.role === 'Owner' ? 'bg-amber-100 text-amber-800' :
-                          user.role === 'Staff' ? 'bg-blue-100 text-blue-800' : 'bg-emerald-100 text-emerald-800'
-                        }`}>
-                          {user.role}
-                        </span>
-                      </td>
-                      <td className="py-1.5 px-2 font-mono text-[11px] text-gray-700 select-all">{user.email}</td>
-                      <td className="py-1.5 px-2 font-mono text-[11px] text-gray-800">
-                        <div className="flex items-center gap-1">
-                          <span>{showPasswords[user.id] ? user.password : "••••••••"}</span>
+                  {credentials.map((user, idx) => {
+                    const isAdmin = user.role === "Admin";
+                    const mgmtKey = user.managementSecurityKey || (isAdmin ? adminMgmtKey : undefined);
+
+                    return (
+                      <tr key={user.id || idx} className="hover:bg-base/40 transition-colors">
+                        <td className="py-1.5 px-2 font-semibold text-main whitespace-nowrap">{user.name}</td>
+                        <td className="py-1.5 px-2">
+                          <span className={`inline-block px-1.5 py-0.5 rounded-md text-[10px] font-bold ${
+                            isAdmin ? 'bg-purple-100 text-purple-800' :
+                            user.role === 'Owner' ? 'bg-amber-100 text-amber-800' :
+                            user.role === 'Staff' ? 'bg-blue-100 text-blue-800' : 'bg-emerald-100 text-emerald-800'
+                          }`}>
+                            {user.role}
+                          </span>
+                        </td>
+                        <td className="py-1.5 px-2 font-mono text-[11px] text-gray-700 select-all">{user.email}</td>
+                        <td className="py-1.5 px-2 font-mono text-[11px] text-gray-800">
+                          <div className="space-y-1">
+                            <div className="flex items-center gap-1">
+                              <span className="text-[10px] font-medium text-gray-500">Pass:</span>
+                              <span>{showPasswords[user.id] ? user.password : "••••••••"}</span>
+                              <button
+                                type="button"
+                                onClick={() => setShowPasswords(prev => ({ ...prev, [user.id]: !prev[user.id] }))}
+                                className="text-gray-400 hover:text-gray-700 p-0.5 cursor-pointer"
+                                title="Toggle Account Password"
+                              >
+                                {showPasswords[user.id] ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
+                              </button>
+                            </div>
+                            {isAdmin && (
+                              <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-300/80 px-2 py-0.5 rounded-md text-[10px] font-bold shadow-2xs">
+                                <Shield className="w-3 h-3 text-amber-700 shrink-0" />
+                                <span className="text-[9px] uppercase tracking-wider text-amber-800">Mgmt Key:</span>
+                                <span className="font-mono text-amber-950 font-extrabold select-all">
+                                  {showPasswords[`${user.id}_mgmt`] ? (mgmtKey || "special123") : "••••••••"}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => setShowPasswords(prev => ({ ...prev, [`${user.id}_mgmt`]: !prev[`${user.id}_mgmt`] }))}
+                                  className="text-amber-700 hover:text-amber-950 p-0.5 ml-0.5 cursor-pointer"
+                                  title="Toggle Management Security Key"
+                                >
+                                  {showPasswords[`${user.id}_mgmt`] ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
+                                </button>
+                              </div>
+                            )}
+                          </div>
+                        </td>
+                        <td className="py-1.5 px-2 text-right whitespace-nowrap">
                           <button
                             type="button"
-                            onClick={() => setShowPasswords(prev => ({ ...prev, [user.id]: !prev[user.id] }))}
-                            className="text-gray-400 hover:text-gray-700 p-0.5"
+                            onClick={() => {
+                              setEmail(user.email);
+                              setPassword(user.password || "");
+                              setIsRegistering(false);
+                              setCopiedIndex(idx);
+                              setTimeout(() => setCopiedIndex(null), 1800);
+                            }}
+                            className="px-2 py-0.5 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-md font-bold text-[10px] transition-colors inline-flex items-center gap-1 cursor-pointer"
                           >
-                            {showPasswords[user.id] ? <EyeOff className="w-3 h-3" /> : <Eye className="w-3 h-3" />}
+                            {copiedIndex === idx ? (
+                              <>
+                                <Check className="w-3 h-3" /> Filled!
+                              </>
+                            ) : (
+                              "Fill Login"
+                            )}
                           </button>
-                        </div>
-                      </td>
-                      <td className="py-1.5 px-2 text-right whitespace-nowrap">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setEmail(user.email);
-                            setPassword(user.password || "");
-                            setIsRegistering(false);
-                            setCopiedIndex(idx);
-                            setTimeout(() => setCopiedIndex(null), 1800);
-                          }}
-                          className="px-2 py-0.5 bg-primary/10 hover:bg-primary text-primary hover:text-white rounded-md font-bold text-[10px] transition-colors inline-flex items-center gap-1"
-                        >
-                          {copiedIndex === idx ? (
-                            <>
-                              <Check className="w-3 h-3" /> Filled!
-                            </>
-                          ) : (
-                            "Fill Login"
-                          )}
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
 
             <p className="text-[10px] text-gray-500 mt-2.5 pt-2 border-t border-main/20 text-center font-medium">
-              💡 Click <span className="font-bold text-primary">"Fill Login"</span> to auto-fill the login form for manual testing.
+              💡 Click <span className="font-bold text-primary">"Fill Login"</span> to auto-fill credentials. For <span className="font-bold text-amber-800">Admin</span>, the Management Security Key is also shown and updates when changed.
             </p>
           </div>
         )}
