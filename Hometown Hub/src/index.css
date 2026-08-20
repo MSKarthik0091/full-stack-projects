@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --canvas: #FAF8F3;
+    --pistachio: #EAF2ED;
+    --header-bg: #183120;
+    --moss-green: #2A7B5F;
+    --clay-brick: #C85A32;
+    --ochre-yellow: #E8A227;
+    --terracotta: #E0856E;
+    --slate-text: #1D2A24;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #FAF8F3;
+    color: #1D2A24;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: #C85A32;
+    color: #FAF8F3;
+  }
+}
+
+/* Morning Dew Canvas Palette Utility Classes */
+.bg-canvas { background-color: #FAF8F3; }
+.bg-pistachio { background-color: #EAF2ED; }
+.bg-cedar { background-color: #183120; }
+.bg-moss { background-color: #2A7B5F; }
+.bg-clay { background-color: #C85A32; }
+.bg-ochre { background-color: #E8A227; }
+.bg-terracotta { background-color: #E0856E; }
+.bg-slate-custom { background-color: #1D2A24; }
+
+.text-cedar { color: #183120; }
+.text-moss { color: #2A7B5F; }
+.text-clay { color: #C85A32; }
+.text-ochre { color: #E8A227; }
+.text-terracotta { color: #E0856E; }
+.text-slate-custom { color: #1D2A24; }
+
+.border-pistachio { border-color: #D3E4DA; }
+.border-moss { border-color: #2A7B5F; }
+.border-clay { border-color: #C85A32; }
+.border-ochre { border-color: #E8A227; }
+.border-terracotta { border-color: #E0856E; }
+
+/* Custom scrollbars for clean look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4D7C7;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A7B5F;
+}
+
+

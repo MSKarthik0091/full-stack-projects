@@ -1,0 +1,6 @@
+{
+  "name": "Hometown Hub",
+  "description": "Hyperlocal digital community platform connecting people across towns, localities, and villages with discussions, verified memberships, announcements, community events, and tiered local moderation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

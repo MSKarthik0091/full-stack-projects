@@ -1,0 +1,1656 @@
+{
+  "users": [
+    {
+      "_id": "user-platform-admin",
+      "__v": 0,
+      "bio": "Global Platform Administrator for Hometown Hub.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "admin@hometownhub.local",
+      "firstName": "Platform",
+      "hometown": "Chennai, Tamil Nadu, India",
+      "isActive": true,
+      "lastName": "Administrator",
+      "password": "admin123",
+      "passwordHash": "admin123",
+      "platformRole": "platformAdmin",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "admin"
+    },
+    {
+      "_id": "user-arun-admin",
+      "__v": 0,
+      "bio": "Lifelong Besant Nagar resident, heritage walker, and community volunteer.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "arun@besantnagar.local",
+      "firstName": "Arun",
+      "hometown": "Besant Nagar, Chennai, India",
+      "isActive": true,
+      "lastName": "Kumar",
+      "password": "arun123",
+      "passwordHash": "arun123",
+      "platformRole": "user",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "arunkumar"
+    },
+    {
+      "_id": "user-priya-admin",
+      "__v": 0,
+      "bio": "Architect, environmental advocate, and co-admin for Besant Nagar community.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "priya@besantnagar.local",
+      "firstName": "Priya",
+      "hometown": "Besant Nagar, Chennai, India",
+      "isActive": true,
+      "lastName": "Sundaram",
+      "password": "priya123",
+      "passwordHash": "priya123",
+      "platformRole": "user",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "priya_s"
+    },
+    {
+      "_id": "user-karthik-mod",
+      "__v": 0,
+      "bio": "Software engineer and local sports club organizer. Community moderator.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "karthik@besantnagar.local",
+      "firstName": "Karthik",
+      "hometown": "Besant Nagar, Chennai, India",
+      "isActive": true,
+      "lastName": "Raman",
+      "password": "karthik123",
+      "passwordHash": "karthik123",
+      "platformRole": "user",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "karthik_r"
+    },
+    {
+      "_id": "user-deepa-member",
+      "__v": 0,
+      "bio": "Teacher and avid gardener. Active member of Besant Nagar and Medavakkam.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "deepa@chennai.local",
+      "firstName": "Deepa",
+      "hometown": "Chennai, Tamil Nadu, India",
+      "isActive": true,
+      "lastName": "Venkat",
+      "password": "deepa123",
+      "passwordHash": "deepa123",
+      "platformRole": "user",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "deepa_v"
+    },
+    {
+      "_id": "user-greenfield-candidate",
+      "__v": 0,
+      "bio": "Greenfield Village resident & historian. Active community participant.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "oliver@greenfield.local",
+      "firstName": "Oliver",
+      "hometown": "Greenfield Village, Somerset, UK",
+      "isActive": true,
+      "lastName": "Holloway",
+      "password": "oliver123",
+      "passwordHash": "oliver123",
+      "platformRole": "user",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "oliver_h"
+    },
+    {
+      "_id": "user-greenfield-mod",
+      "__v": 0,
+      "bio": "Moderator keeping Greenfield Village discussions friendly.",
+      "createdAt": "2026-08-18T14:28:55.557Z",
+      "email": "emma@greenfield.local",
+      "firstName": "Emma",
+      "hometown": "Greenfield Village, Somerset, UK",
+      "isActive": true,
+      "lastName": "Watson-Smith",
+      "password": "emma123",
+      "passwordHash": "emma123",
+      "platformRole": "user",
+      "privacySettings": {
+        "profilePhoto": "public",
+        "bio": "public",
+        "hometown": "public"
+      },
+      "profilePhoto": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "updatedAt": "2026-08-19T06:00:19.542Z",
+      "username": "emma_ws"
+    }
+  ],
+  "locations": [
+    {
+      "_id": "loc-besant-nagar",
+      "country": "India",
+      "state": "Tamil Nadu",
+      "district": "Chennai District",
+      "townOrLocality": "Besant Nagar",
+      "postalCode": "600090",
+      "latitude": 13.0002,
+      "longitude": 80.2668,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "loc-medavakkam",
+      "country": "India",
+      "state": "Tamil Nadu",
+      "district": "Chennai District",
+      "townOrLocality": "Medavakkam",
+      "postalCode": "600100",
+      "latitude": 12.9192,
+      "longitude": 80.1878,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "loc-velachery",
+      "country": "India",
+      "state": "Tamil Nadu",
+      "district": "Chennai District",
+      "townOrLocality": "Velachery",
+      "postalCode": "600042",
+      "latitude": 12.9759,
+      "longitude": 80.2212,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "loc-greenfield",
+      "country": "United Kingdom",
+      "state": "England",
+      "district": "Somerset District",
+      "townOrLocality": "Greenfield Village",
+      "postalCode": "BA1 1AA",
+      "latitude": 51.3811,
+      "longitude": -2.359,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "loc-brooklyn-heights",
+      "country": "United States",
+      "state": "New York",
+      "district": "Kings County (Brooklyn)",
+      "townOrLocality": "Brooklyn Heights",
+      "postalCode": "11201",
+      "latitude": 40.696,
+      "longitude": -73.9933,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "communities": [
+    {
+      "_id": "comm-besant-nagar",
+      "__v": 0,
+      "adminCount": 2,
+      "coverPhoto": "",
+      "createdAt": "2026-08-18T14:28:55.607Z",
+      "createdBy": "user-arun-admin",
+      "description": "Official community hub for residents, businesses, and friends of Besant Nagar (Elliot Beach, 4th Main Road, Olcott Memorial, and surroundings).",
+      "eventCount": 0,
+      "location": {
+        "coordinates": {
+          "coordinates": [
+            80.2707,
+            13.0827
+          ],
+          "type": "Point"
+        }
+      },
+      "memberCount": 4,
+      "name": "Besant Nagar",
+      "pinnedAnnouncements": [],
+      "postCount": 0,
+      "rules": [],
+      "slug": "besant-nagar",
+      "status": "active",
+      "type": "locality",
+      "updatedAt": "2026-08-19T06:00:19.615Z",
+      "verificationRequirement": "admin_approval",
+      "coverImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&auto=format&fit=crop&q=80",
+      "profileImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "_id": "comm-velachery",
+      "__v": 0,
+      "adminCount": 1,
+      "coverPhoto": "",
+      "createdAt": "2026-08-18T14:28:55.607Z",
+      "createdBy": "user-arun-admin",
+      "description": "The official digital town square for Velachery residents, MRTS commuters, and local cultural societies.",
+      "eventCount": 0,
+      "location": {
+        "coordinates": {
+          "coordinates": [
+            80.2707,
+            13.0827
+          ],
+          "type": "Point"
+        }
+      },
+      "memberCount": 2,
+      "name": "Velachery",
+      "pinnedAnnouncements": [],
+      "postCount": 0,
+      "rules": [],
+      "slug": "velachery",
+      "status": "active",
+      "type": "locality",
+      "updatedAt": "2026-08-19T06:00:19.615Z",
+      "verificationRequirement": "admin_approval",
+      "coverImage": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?w=1200&auto=format&fit=crop&q=80",
+      "profileImage": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "_id": "comm-greenfield",
+      "__v": 0,
+      "adminCount": 0,
+      "coverPhoto": "",
+      "createdAt": "2026-08-18T14:28:55.607Z",
+      "createdBy": "user-greenfield-candidate",
+      "description": "Historical parish and village community in Somerset. (Currently Admin-less: under temporary Platform Admin oversight).",
+      "eventCount": 0,
+      "location": {
+        "coordinates": {
+          "coordinates": [
+            80.2707,
+            13.0827
+          ],
+          "type": "Point"
+        }
+      },
+      "memberCount": 2,
+      "name": "Greenfield Village",
+      "pinnedAnnouncements": [],
+      "postCount": 0,
+      "rules": [],
+      "slug": "greenfield-village",
+      "status": "active",
+      "type": "locality",
+      "updatedAt": "2026-08-19T06:00:19.615Z",
+      "verificationRequirement": "admin_approval",
+      "coverImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&auto=format&fit=crop&q=80",
+      "profileImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "_id": "comm-brooklyn-heights",
+      "__v": 0,
+      "adminCount": 0,
+      "coverPhoto": "",
+      "createdAt": "2026-08-18T14:28:55.607Z",
+      "createdBy": "user-platform-admin",
+      "description": "Historic brownstone neighborhood community hub overlooking the Manhattan skyline.",
+      "eventCount": 0,
+      "location": {
+        "coordinates": {
+          "coordinates": [
+            80.2707,
+            13.0827
+          ],
+          "type": "Point"
+        }
+      },
+      "memberCount": 0,
+      "name": "Brooklyn Heights",
+      "pinnedAnnouncements": [],
+      "postCount": 0,
+      "rules": [],
+      "slug": "brooklyn-heights",
+      "status": "active",
+      "type": "locality",
+      "updatedAt": "2026-08-19T06:00:19.615Z",
+      "verificationRequirement": "admin_approval",
+      "coverImage": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=1200&auto=format&fit=crop&q=80",
+      "profileImage": "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=200&auto=format&fit=crop&q=80"
+    },
+    {
+      "_id": "comm-medavakkam",
+      "name": "Medavakkam",
+      "slug": "medavakkam",
+      "locationId": "loc-medavakkam",
+      "description": "Digital neighborhood forum for Medavakkam locality, connecting residents on local civic updates, parks, lake conservation, and cultural meets.",
+      "profileImage": "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=200&auto=format&fit=crop&q=80",
+      "coverImage": "https://images.unsplash.com/photo-1519817650390-64a93db51149?w=1200&auto=format&fit=crop&q=80",
+      "memberCount": 2,
+      "status": "active",
+      "adminCount": 1,
+      "moderatorCount": 0,
+      "contactEmail": "admin@medavakkam.hometownhub.local",
+      "createdBy": "user-deepa-member",
+      "approvedBy": "user-platform-admin",
+      "approvedAt": "2026-01-08T12:00:00.000Z",
+      "createdAt": "2026-01-08T11:00:00.000Z",
+      "updatedAt": "2026-08-19T06:00:19.615Z"
+    },
+    {
+      "_id": "comm-1787065193653",
+      "__v": 0,
+      "adminCount": 1,
+      "coverPhoto": "",
+      "createdAt": "2026-08-19T05:22:17.709Z",
+      "createdBy": "user-deepa-member",
+      "description": "Official community hub for Mylapore residents, Kapaleeshwarar temple street neighborhoods, and local cultural societies.",
+      "eventCount": 0,
+      "location": {
+        "coordinates": {
+          "coordinates": [
+            80.2707,
+            13.0827
+          ],
+          "type": "Point"
+        }
+      },
+      "memberCount": 1,
+      "name": "New Community",
+      "pinnedAnnouncements": [],
+      "postCount": 0,
+      "rules": [],
+      "slug": "new-community",
+      "status": "active",
+      "type": "locality",
+      "updatedAt": "2026-08-19T06:00:19.615Z",
+      "verificationRequirement": "admin_approval"
+    }
+  ],
+  "communityMemberships": [
+    {
+      "_id": "mem-arun-besant",
+      "__v": 0,
+      "communityId": "comm-besant-nagar",
+      "joinedAt": "2026-01-05T09:00:00.000Z",
+      "membershipStatus": "active",
+      "role": "communityAdmin",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "mem-karthik-besant",
+      "__v": 0,
+      "communityId": "comm-besant-nagar",
+      "joinedAt": "2026-01-10T14:30:00.000Z",
+      "membershipStatus": "active",
+      "role": "communityAdmin",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "mem-deepa-besant",
+      "__v": 0,
+      "communityId": "comm-besant-nagar",
+      "joinedAt": "2026-01-15T09:30:00.000Z",
+      "membershipStatus": "active",
+      "role": "moderator",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "mem-deepa-medavakkam",
+      "__v": 0,
+      "communityId": "comm-medavakkam",
+      "joinedAt": "2026-01-08T12:00:00.000Z",
+      "membershipStatus": "left",
+      "role": "communityAdmin",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "mem-arun-medavakkam",
+      "__v": 0,
+      "communityId": "comm-medavakkam",
+      "joinedAt": "2026-08-19T05:22:43.727Z",
+      "membershipStatus": "active",
+      "role": "member",
+      "userId": "user-arun-admin",
+      "verificationMethod": "phone",
+      "verificationNotes": "Verified by Community Admin"
+    },
+    {
+      "_id": "mem-oliver-greenfield",
+      "__v": 0,
+      "communityId": "comm-greenfield",
+      "joinedAt": "2026-01-20T11:15:00.000Z",
+      "membershipStatus": "active",
+      "role": "member",
+      "userId": "user-greenfield-candidate"
+    },
+    {
+      "_id": "mem-emma-greenfield",
+      "__v": 0,
+      "communityId": "comm-greenfield",
+      "joinedAt": "2026-01-21T11:15:00.000Z",
+      "membershipStatus": "active",
+      "role": "moderator",
+      "userId": "user-greenfield-mod"
+    },
+    {
+      "_id": "mem-karthik-medavakkam",
+      "__v": 0,
+      "communityId": "comm-medavakkam",
+      "joinedAt": "2026-01-12T10:00:00.000Z",
+      "membershipStatus": "active",
+      "role": "communityAdmin",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "mem-arun-velachery",
+      "__v": 0,
+      "communityId": "comm-velachery",
+      "joinedAt": "2026-01-10T15:00:00.000Z",
+      "membershipStatus": "active",
+      "role": "communityAdmin",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "mem-deepa-velachery",
+      "__v": 0,
+      "communityId": "comm-velachery",
+      "joinedAt": "2026-01-15T11:00:00.000Z",
+      "membershipStatus": "active",
+      "role": "member",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "mem-admin-brooklyn",
+      "__v": 0,
+      "communityId": "comm-brooklyn-heights",
+      "joinedAt": "2026-01-14T10:00:00.000Z",
+      "membershipStatus": "left",
+      "role": "communityAdmin",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "mem-1787032050220",
+      "__v": 0,
+      "communityId": "comm-besant-nagar",
+      "joinedAt": "2026-08-18T05:48:40.381Z",
+      "membershipStatus": "active",
+      "role": "member",
+      "userId": "user-priya-admin",
+      "verificationMethod": "phone",
+      "verificationNotes": "Verified by Community Admin"
+    },
+    {
+      "_id": "mem-1787065193653",
+      "__v": 0,
+      "communityId": "comm-1787065193653",
+      "joinedAt": "2026-08-18T14:59:53.653Z",
+      "membershipStatus": "active",
+      "role": "communityAdmin",
+      "userId": "user-deepa-member"
+    }
+  ],
+  "posts": [
+    {
+      "_id": "post-1787029553698",
+      "__v": 0,
+      "authorId": "user-karthik-mod",
+      "category": "General",
+      "commentCount": 0,
+      "communityId": "comm-besant-nagar",
+      "content": "bach",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": false,
+      "likeCount": 1,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "Amazing ceremony at the beach",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    },
+    {
+      "_id": "post-1787029479773",
+      "__v": 0,
+      "authorId": "user-karthik-mod",
+      "category": "General",
+      "commentCount": 0,
+      "communityId": "comm-besant-nagar",
+      "content": "Beautiful Ceremony at Besant Nagar Beach",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": false,
+      "likeCount": 0,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "Marriage - all can come",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    },
+    {
+      "_id": "post-besant-announcement",
+      "__v": 0,
+      "authorId": "user-arun-admin",
+      "category": "Announcement",
+      "commentCount": 2,
+      "communityId": "comm-besant-nagar",
+      "content": "Dear Besant Nagar residents and beach lovers,\n\nWe are pleased to announce the official rollout of 24 segregated eco-bins along Elliot Beach Promenade, partnered with our local youth volunteers. The community cleanup drive starts this Saturday at 6:30 AM.\n\nPlease join us near the Schmidt Memorial with gloves and reusable water bottles. Refreshments will be provided by local neighborhood bakeries.",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": true,
+      "likeCount": 14,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "🚨 Official Advisory: Beach Promenade Coastal Cleanup & Eco-Bin Installation",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    },
+    {
+      "_id": "post-besant-news",
+      "__v": 0,
+      "authorId": "user-priya-admin",
+      "category": "Local News",
+      "commentCount": 1,
+      "communityId": "comm-besant-nagar",
+      "content": "Great news for morning walkers and cyclists! Greater Chennai Corporation has approved our community proposal for raised pedestrian crossings, solar-powered crosswalk blinkers, and 50 native saplings along 4th Main Road.\n\nWork will commence next Tuesday from 10 PM to 4 AM to minimize traffic impact.",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": false,
+      "likeCount": 2,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "Local News: New Pedestrian Crossings and Tree Canopies Approved for 4th Main Road",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    },
+    {
+      "_id": "post-besant-culture",
+      "__v": 0,
+      "authorId": "user-deepa-member",
+      "category": "Culture",
+      "commentCount": 0,
+      "communityId": "comm-besant-nagar",
+      "content": "Sharing a quick photo from yesterday evening acoustic veena recital at Spaces. It is so heartwarming to see the neighborhood come alive with classical arts under the banyan tree. Who else is attending the weekend vocal concert?",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": false,
+      "likeCount": 2,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "Margazhi & Classical Music Gathering at Spaces Arts Compound",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    },
+    {
+      "_id": "post-besant-private-discussion",
+      "__v": 0,
+      "authorId": "user-karthik-mod",
+      "category": "Discussion",
+      "commentCount": 1,
+      "communityId": "comm-besant-nagar",
+      "content": "This is a private update for verified Besant Nagar members. Here is the volunteer patrol roster for the interior streets around 6th Avenue. If you notice any defunct street lights, please drop the pole number below so our ward coordinator can expedite repairs.",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": false,
+      "likeCount": 5,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "Resident-Only: Neighborhood Security & Night Patrol Roster (Feb-Mar)",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    },
+    {
+      "_id": "post-greenfield-initiative",
+      "__v": 0,
+      "authorId": "user-greenfield-candidate",
+      "category": "Initiative",
+      "commentCount": 0,
+      "communityId": "comm-greenfield",
+      "content": "The old parish apple orchard needs some pruning and fresh organic mulching before spring blossom. Looking for 8-10 volunteers this coming Sunday at 10 AM. Bring your garden shears!",
+      "createdAt": "2026-08-18T14:28:55.704Z",
+      "isPinned": true,
+      "likeCount": 7,
+      "mediaUrls": [],
+      "status": "active",
+      "title": "Greenfield Village Orchard Restoration Project — Spring Volunteers Needed",
+      "updatedAt": "2026-08-19T06:00:19.736Z"
+    }
+  ],
+  "comments": [
+    {
+      "_id": "comment-1",
+      "__v": 0,
+      "authorId": "user-deepa-member",
+      "content": "I will definitely be there with my family! Will there be collection bags for microplastics on the sand?",
+      "createdAt": "2026-08-18T14:28:55.749Z",
+      "parentCommentId": null,
+      "postId": "post-besant-announcement",
+      "status": "active",
+      "updatedAt": "2026-08-19T06:00:19.884Z"
+    },
+    {
+      "_id": "comment-2",
+      "__v": 0,
+      "authorId": "user-arun-admin",
+      "content": "Yes Deepa! We have special fine mesh sifters and biodegradable collection bags sponsored by Coastal Clean India.",
+      "createdAt": "2026-08-18T14:28:55.749Z",
+      "parentCommentId": "comment-1",
+      "postId": "post-besant-announcement",
+      "status": "active",
+      "updatedAt": "2026-08-19T06:00:19.884Z"
+    },
+    {
+      "_id": "comment-3",
+      "__v": 0,
+      "authorId": "user-karthik-mod",
+      "content": "Much needed initiative. The pedestrian crossings will make it so much safer for children walking to Olcott School.",
+      "createdAt": "2026-08-18T14:28:55.749Z",
+      "parentCommentId": null,
+      "postId": "post-besant-news",
+      "status": "active",
+      "updatedAt": "2026-08-19T06:00:19.884Z"
+    },
+    {
+      "_id": "comment-4",
+      "__v": 0,
+      "authorId": "user-arun-admin",
+      "content": "Pole #42 on 6th Avenue has been reported to TANGEDCO. Repair crew scheduled for tomorrow 11 AM.",
+      "createdAt": "2026-08-18T14:28:55.749Z",
+      "parentCommentId": null,
+      "postId": "post-besant-private-discussion",
+      "status": "active",
+      "updatedAt": "2026-08-19T06:00:19.884Z"
+    }
+  ],
+  "reactions": [
+    {
+      "_id": "react-1",
+      "__v": 0,
+      "createdAt": "2026-02-10T08:30:00.000Z",
+      "postId": "post-besant-announcement",
+      "reactionType": "heart",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "react-2",
+      "__v": 0,
+      "createdAt": "2026-02-10T08:45:00.000Z",
+      "postId": "post-besant-announcement",
+      "reactionType": "celebrate",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "react-3",
+      "__v": 0,
+      "createdAt": "2026-02-10T09:00:00.000Z",
+      "postId": "post-besant-announcement",
+      "reactionType": "like",
+      "userId": "user-priya-admin"
+    },
+    {
+      "_id": "react-4",
+      "__v": 0,
+      "createdAt": "2026-02-12T15:00:00.000Z",
+      "postId": "post-besant-news",
+      "reactionType": "helpful",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "react-1787029610759",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:06:50.759Z",
+      "postId": "post-1787029553698",
+      "reactionType": "celebrate",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "react-1787033397639",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:09:57.639Z",
+      "postId": "post-besant-culture",
+      "reactionType": "like",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "react-1787033404736",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:10:04.736Z",
+      "postId": "post-besant-news",
+      "reactionType": "heart",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "react-1787033836458",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:17:16.458Z",
+      "postId": "post-besant-culture",
+      "reactionType": "celebrate",
+      "userId": "user-priya-admin"
+    }
+  ],
+  "events": [
+    {
+      "_id": "event-besant-ongoing-now",
+      "__v": 0,
+      "approvalStatus": "approved",
+      "approvedBy": "user-arun-admin",
+      "approvedByRole": "communityAdmin",
+      "capacity": 40,
+      "category": "Community Meetup",
+      "communityId": "comm-besant-nagar",
+      "coverImage": "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-18T14:28:55.832Z",
+      "createdBy": "user-arun-admin",
+      "creatorRole": "member",
+      "description": "Join us live at Elliot Beach promenade for our weekly sunrise yoga and breathwork session! All levels welcome.",
+      "endTime": "2026-08-18T07:50:19.209Z",
+      "location": "Elliot Beach Promenade, Besant Nagar",
+      "participantCount": 12,
+      "startTime": "2026-08-18T05:50:19.209Z",
+      "status": "active",
+      "title": "🔴 LIVE NOW: Besant Nagar Morning Community Yoga & Beachside Wellness",
+      "updatedAt": "2026-08-19T06:00:19.977Z",
+      "waitlistCount": 0
+    },
+    {
+      "_id": "event-besant-cleanup",
+      "__v": 0,
+      "approvalStatus": "approved",
+      "approvedBy": "user-arun-admin",
+      "approvedByRole": "communityAdmin",
+      "capacity": 50,
+      "category": "Community Meetup",
+      "communityId": "comm-besant-nagar",
+      "coverImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-18T14:28:55.832Z",
+      "createdBy": "user-arun-admin",
+      "creatorRole": "member",
+      "description": "Join your fellow neighbors for a morning beach cleanup, dune vegetation planting, and community breakfast. Tools and gloves provided.",
+      "endTime": "2026-08-22T09:00:00.000Z",
+      "location": "Schmidt Memorial, Elliot Beach, Besant Nagar",
+      "participantCount": 3,
+      "startTime": "2026-08-22T06:30:00.000Z",
+      "status": "active",
+      "title": "Besant Nagar Elliot Beach Eco-Drive & Sand Restoration",
+      "updatedAt": "2026-08-19T06:00:19.977Z",
+      "waitlistCount": 0
+    },
+    {
+      "_id": "event-besant-book-exchange",
+      "__v": 0,
+      "approvalStatus": "approved",
+      "approvedBy": "user-priya-admin",
+      "approvedByRole": "communityAdmin",
+      "capacity": 30,
+      "category": "Community Meetup",
+      "communityId": "comm-besant-nagar",
+      "coverImage": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-18T14:28:55.832Z",
+      "createdBy": "user-deepa-member",
+      "creatorRole": "member",
+      "description": "Bring 2 books you love and any heirloom seeds or garden cuttings to swap with fellow neighbors. Open discussion on sustainable living.",
+      "endTime": "2026-08-29T18:30:00.000Z",
+      "location": "Besant Gardens (Opposite Theosophical Society entrance)",
+      "participantCount": 1,
+      "startTime": "2026-08-29T16:00:00.000Z",
+      "status": "active",
+      "title": "Community Book & Seed Exchange under the Banyan Tree",
+      "updatedAt": "2026-08-19T06:00:19.977Z",
+      "waitlistCount": 0
+    },
+    {
+      "_id": "event-besant-pending-proposal",
+      "__v": 0,
+      "approvalStatus": "approved",
+      "approvedBy": "user-karthik-mod",
+      "approvedByRole": "communityAdmin",
+      "capacity": 25,
+      "category": "Community Meetup",
+      "communityId": "comm-besant-nagar",
+      "coverImage": "https://images.unsplash.com/photo-1477959858617-67f30bc75b82?w=800&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-18T14:28:55.832Z",
+      "createdBy": "user-deepa-member",
+      "creatorRole": "member",
+      "description": "A 2-hour guided walking tour exploring 1960s coastal architecture, art sanctuaries, and traditional courtyard homes.",
+      "endTime": "2026-09-05T09:00:00.000Z",
+      "location": "Starting at Kalakshetra Gate 1",
+      "participantCount": 1,
+      "startTime": "2026-09-05T07:00:00.000Z",
+      "status": "active",
+      "title": "Heritage Walk: Architecture of Old Besant Nagar & Kalakshetra Colony",
+      "updatedAt": "2026-08-19T06:00:19.977Z",
+      "waitlistCount": 0
+    },
+    {
+      "_id": "event-greenfield-fete",
+      "__v": 0,
+      "approvalStatus": "pending",
+      "capacity": 100,
+      "category": "Community Meetup",
+      "communityId": "comm-greenfield",
+      "coverImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-18T14:28:55.832Z",
+      "createdBy": "user-greenfield-candidate",
+      "creatorRole": "member",
+      "description": "Annual village gathering featuring local honey, homemade pies, traditional folk fiddle, and children games on the green.",
+      "endTime": "2026-09-12T17:00:00.000Z",
+      "location": "The Village Green, Greenfield",
+      "participantCount": 2,
+      "startTime": "2026-09-12T11:00:00.000Z",
+      "status": "active",
+      "title": "Greenfield Village Traditional Summer Fete & Craft Fair",
+      "updatedAt": "2026-08-19T06:00:19.977Z",
+      "waitlistCount": 0
+    },
+    {
+      "_id": "event-besant-past-townhall",
+      "__v": 0,
+      "approvalStatus": "approved",
+      "approvedBy": "user-arun-admin",
+      "approvedByRole": "communityAdmin",
+      "capacity": 100,
+      "category": "Community Meetup",
+      "communityId": "comm-besant-nagar",
+      "coverImage": "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop&q=80",
+      "createdAt": "2026-08-18T14:28:55.832Z",
+      "createdBy": "user-arun-admin",
+      "creatorRole": "member",
+      "description": "Community consultation on municipal waste segregation, storm-water drain repairs, and youth volunteer programs.",
+      "endTime": "2026-08-11T08:20:19.209Z",
+      "location": "Besant Nagar Community Center Auditorium",
+      "participantCount": 45,
+      "startTime": "2026-08-11T06:20:19.209Z",
+      "status": "active",
+      "title": "Besant Nagar Quarter 1 Townhall & Coastal Waste Management Summit",
+      "updatedAt": "2026-08-19T06:00:19.977Z",
+      "waitlistCount": 0
+    }
+  ],
+  "eventParticipants": [
+    {
+      "_id": "ep-1",
+      "__v": 0,
+      "eventId": "event-besant-cleanup",
+      "joinedAt": "2026-02-10T08:00:00.000Z",
+      "participationStatus": "going",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "ep-2",
+      "__v": 0,
+      "eventId": "event-besant-cleanup",
+      "joinedAt": "2026-02-10T08:15:00.000Z",
+      "participationStatus": "going",
+      "userId": "user-priya-admin"
+    },
+    {
+      "_id": "ep-3",
+      "__v": 0,
+      "eventId": "event-besant-cleanup",
+      "joinedAt": "2026-02-10T09:00:00.000Z",
+      "participationStatus": "going",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "ep-4",
+      "__v": 0,
+      "eventId": "event-besant-book-exchange",
+      "joinedAt": "2026-02-12T10:00:00.000Z",
+      "participationStatus": "going",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "ep-5",
+      "__v": 0,
+      "cancelledAt": "2026-08-18T06:11:38.713Z",
+      "eventId": "event-besant-book-exchange",
+      "joinedAt": "2026-02-12T11:30:00.000Z",
+      "participationStatus": "interested",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "ep-1787033474095",
+      "__v": 0,
+      "cancelledAt": "2026-08-18T06:11:41.547Z",
+      "eventId": "event-besant-cleanup",
+      "joinedAt": "2026-08-18T06:11:14.095Z",
+      "participationStatus": "cancelled",
+      "userId": "user-karthik-mod"
+    }
+  ],
+  "roleOffers": [
+    {
+      "_id": "ro-deepa-mod-offer",
+      "__v": 0,
+      "communityId": "comm-besant-nagar",
+      "createdAt": "2026-02-16T12:00:00.000Z",
+      "offeredBy": "user-arun-admin",
+      "status": "accepted",
+      "targetRole": "moderator",
+      "userId": "user-deepa-member",
+      "respondedAt": "2026-08-18T14:34:10.533Z"
+    },
+    {
+      "_id": "ro-1787116937309-uu6k",
+      "__v": 0,
+      "communityId": "comm-medavakkam",
+      "communityName": "Medavakkam",
+      "createdAt": "2026-08-19T05:22:17.309Z",
+      "offeredBy": "user-platform-admin",
+      "offeredByName": "Platform Administrator (Platform Admin)",
+      "status": "accepted",
+      "targetRole": "communityAdmin",
+      "userId": "user-karthik-mod",
+      "respondedAt": "2026-08-19T05:22:29.312Z"
+    }
+  ],
+  "roleRequests": [],
+  "communityCreationRequests": [
+    {
+      "_id": "req-mylapore",
+      "__v": 0,
+      "createdAt": "2026-02-14T10:00:00.000Z",
+      "description": "Official community hub for Mylapore residents, Kapaleeshwarar temple street neighborhoods, and local cultural societies.",
+      "location": {
+        "country": "India",
+        "state": "Tamil Nadu"
+      },
+      "requestedBy": "user-deepa-member",
+      "status": "approved",
+      "type": "locality",
+      "reviewNotes": "Approved official locality hub",
+      "reviewedAt": "2026-08-18T14:59:53.653Z",
+      "reviewedBy": "user-platform-admin"
+    },
+    {
+      "_id": "req-besant-duplicate-test",
+      "__v": 0,
+      "createdAt": "2026-02-15T12:00:00.000Z",
+      "description": "Exclusive club group for Besant Nagar residents.",
+      "location": {
+        "country": "India",
+        "state": "Tamil Nadu"
+      },
+      "requestedBy": "user-deepa-member",
+      "status": "rejected",
+      "type": "locality",
+      "reviewNotes": "Declined per locality guidelines",
+      "reviewedAt": "2026-08-18T14:47:50.765Z",
+      "reviewedBy": "user-platform-admin"
+    },
+    {
+      "_id": "req-shinjuku",
+      "__v": 0,
+      "createdAt": "2026-02-16T08:00:00.000Z",
+      "description": "Global community hub for residents and business owners of Shinjuku ward.",
+      "location": {
+        "country": "Japan",
+        "state": "Tokyo"
+      },
+      "requestedBy": "user-greenfield-candidate",
+      "status": "approved",
+      "type": "locality",
+      "reviewNotes": "Approved official locality hub",
+      "reviewedAt": "2026-08-18T14:47:39.901Z",
+      "reviewedBy": "user-platform-admin"
+    },
+    {
+      "_id": "req-1787063856516",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:37:36.516Z",
+      "description": "",
+      "location": {
+        "country": "India",
+        "state": "Tamil"
+      },
+      "requestedBy": "user-deepa-member",
+      "status": "approved",
+      "type": "locality",
+      "reviewNotes": "Approved official locality hub",
+      "reviewedAt": "2026-08-18T14:47:46.912Z",
+      "reviewedBy": "user-platform-admin"
+    }
+  ],
+  "communityAdminInvitations": [
+    {
+      "_id": "inv-greenfield-oliver",
+      "__v": 0,
+      "communityId": "comm-greenfield",
+      "createdAt": "2026-08-18T14:28:55.960Z",
+      "status": "pending",
+      "updatedAt": "2026-08-19T06:00:20.116Z"
+    }
+  ],
+  "reports": [
+    {
+      "_id": "rep-1",
+      "__v": 0,
+      "communityId": "comm-besant-nagar",
+      "createdAt": "2026-02-11T09:45:00.000Z",
+      "description": "Suspicious bot comment advertising external crypto link.",
+      "reason": "Spam / Commercial Advertising",
+      "reporterId": "user-deepa-member",
+      "resolution": "Content soft-deleted by Moderator Karthik Raman.",
+      "status": "resolved",
+      "targetId": "comment-spam-sample",
+      "targetSnippet": "Buy crypto now at fast-profit.test!",
+      "targetType": "comment"
+    }
+  ],
+  "auditLogs": [
+    {
+      "_id": "audit-1787033509735-wplp7",
+      "__v": 0,
+      "action": "APPROVE_EVENT",
+      "actorId": "user-karthik-mod",
+      "communityId": "comm-besant-nagar",
+      "targetId": "event-besant-pending-proposal",
+      "targetType": "event",
+      "timestamp": "2026-08-18T14:28:56.079Z"
+    },
+    {
+      "_id": "audit-1787032120382-3ezov",
+      "__v": 0,
+      "action": "APPROVE_MEMBERSHIP",
+      "actorId": "user-karthik-mod",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "method": "phone"
+      },
+      "targetId": "user-priya-admin",
+      "targetType": "user",
+      "timestamp": "2026-08-18T14:28:56.080Z"
+    },
+    {
+      "_id": "audit-1787031436025-bmlo1",
+      "__v": 0,
+      "action": "ASSIGN_COMMUNITY_ADMIN",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-besant-nagar",
+      "targetId": "user-karthik-mod",
+      "targetType": "user",
+      "timestamp": "2026-08-18T14:28:56.081Z"
+    },
+    {
+      "_id": "audit-1787031426795-xrk43",
+      "__v": 0,
+      "action": "ADMIN_LEAVE_ORPHAN",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-brooklyn-heights",
+      "metadata": {
+        "note": "Sole Community Admin left the community. Community is now Admin-less under Platform Admin oversight."
+      },
+      "targetId": "comm-brooklyn-heights",
+      "targetType": "community",
+      "timestamp": "2026-08-18T14:28:56.081Z"
+    },
+    {
+      "_id": "audit-1787031409500-5w3gv",
+      "__v": 0,
+      "action": "ADMIN_LEAVE",
+      "actorId": "user-priya-admin",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "remainingAdmins": 1
+      },
+      "targetId": "comm-besant-nagar",
+      "targetType": "community",
+      "timestamp": "2026-08-18T14:28:56.081Z"
+    },
+    {
+      "_id": "audit-1787029553698-patat",
+      "__v": 0,
+      "action": "CREATE_POST",
+      "actorId": "user-karthik-mod",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "title": "Amazing ceremony at the beach",
+        "category": "General"
+      },
+      "targetId": "post-1787029553698",
+      "targetType": "post",
+      "timestamp": "2026-08-18T14:28:56.081Z"
+    },
+    {
+      "_id": "audit-1787029479774-jw97i",
+      "__v": 0,
+      "action": "CREATE_POST",
+      "actorId": "user-karthik-mod",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "title": "Marriage - all can come",
+        "category": "General"
+      },
+      "targetId": "post-1787029479773",
+      "targetType": "post",
+      "timestamp": "2026-08-18T14:28:56.082Z"
+    },
+    {
+      "_id": "audit-1",
+      "__v": 0,
+      "action": "APPROVE_COMMUNITY_CREATION",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "name": "Besant Nagar",
+        "country": "India",
+        "locality": "Besant Nagar"
+      },
+      "targetId": "comm-besant-nagar",
+      "targetType": "community",
+      "timestamp": "2026-08-18T14:28:56.082Z"
+    },
+    {
+      "_id": "audit-2",
+      "__v": 0,
+      "action": "PROMOTE_CO_ADMIN",
+      "actorId": "user-arun-admin",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "promotedUser": "Priya Sundaram",
+        "role": "communityAdmin"
+      },
+      "targetId": "user-priya-admin",
+      "targetType": "user",
+      "timestamp": "2026-08-18T14:28:56.082Z"
+    },
+    {
+      "_id": "audit-3",
+      "__v": 0,
+      "action": "APPOINT_MODERATOR",
+      "actorId": "user-priya-admin",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "appointedUser": "Karthik Raman",
+        "role": "moderator"
+      },
+      "targetId": "user-karthik-mod",
+      "targetType": "user",
+      "timestamp": "2026-08-18T14:28:56.082Z"
+    },
+    {
+      "_id": "audit-1787063650555-f6paz",
+      "__v": 0,
+      "action": "ACCEPT_ROLE_OFFER",
+      "actorId": "user-deepa-member",
+      "communityId": "comm-besant-nagar",
+      "metadata": {
+        "activatedRole": "moderator",
+        "offeredBy": "user-arun-admin"
+      },
+      "targetId": "user-deepa-member",
+      "targetType": "user",
+      "timestamp": "2026-08-18T14:34:10.617Z"
+    },
+    {
+      "_id": "audit-1787063673478-4oxe6",
+      "__v": 0,
+      "action": "ADMIN_LEAVE_ORPHAN",
+      "actorId": "user-deepa-member",
+      "communityId": "comm-medavakkam",
+      "metadata": {
+        "note": "Sole Community Admin left the community. Community is now Admin-less under Platform Admin oversight."
+      },
+      "targetId": "comm-medavakkam",
+      "targetType": "community",
+      "timestamp": "2026-08-18T14:34:33.522Z"
+    },
+    {
+      "_id": "audit-1787065193676-4bzdq",
+      "__v": 0,
+      "action": "APPROVE_COMMUNITY_CREATION",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-1787065193653",
+      "metadata": {
+        "assignedAdminId": "user-deepa-member"
+      },
+      "targetId": "comm-1787065193653",
+      "targetType": "community",
+      "timestamp": "2026-08-18T14:59:53.778Z"
+    },
+    {
+      "_id": "audit-1787116937320-lsgdl",
+      "__v": 0,
+      "action": "OFFER_COMMUNITY_ADMIN_APPOINTMENT",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-medavakkam",
+      "metadata": {
+        "appointedBy": "admin",
+        "targetUser": "karthik_r"
+      },
+      "targetId": "user-karthik-mod",
+      "targetType": "user",
+      "timestamp": "2026-08-19T05:22:17.408Z"
+    },
+    {
+      "_id": "audit-1787116949327-fi941",
+      "__v": 0,
+      "action": "ACCEPT_ROLE_OFFER",
+      "actorId": "user-karthik-mod",
+      "communityId": "comm-medavakkam",
+      "metadata": {
+        "activatedRole": "communityAdmin",
+        "offeredBy": "user-platform-admin"
+      },
+      "targetId": "user-karthik-mod",
+      "targetType": "user",
+      "timestamp": "2026-08-19T05:22:29.369Z"
+    },
+    {
+      "_id": "audit-1787116963734-zvlos",
+      "__v": 0,
+      "action": "APPROVE_MEMBERSHIP",
+      "actorId": "user-karthik-mod",
+      "communityId": "comm-medavakkam",
+      "metadata": {
+        "method": "phone"
+      },
+      "targetId": "user-arun-admin",
+      "targetType": "user",
+      "timestamp": "2026-08-19T05:22:43.765Z"
+    },
+    {
+      "_id": "audit-1787119178583-p2y7s",
+      "__v": 0,
+      "action": "UPDATE_COMMUNITY_BRANDING",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-velachery",
+      "metadata": {
+        "profileImageUpdated": true,
+        "coverImageUpdated": true
+      },
+      "targetId": "comm-velachery",
+      "targetType": "community",
+      "timestamp": "2026-08-19T05:59:38.643Z"
+    },
+    {
+      "_id": "audit-1787119219527-36men",
+      "__v": 0,
+      "action": "UPDATE_COMMUNITY_BRANDING",
+      "actorId": "user-platform-admin",
+      "communityId": "comm-velachery",
+      "metadata": {
+        "profileImageUpdated": true,
+        "coverImageUpdated": true
+      },
+      "targetId": "comm-velachery",
+      "targetType": "community",
+      "timestamp": "2026-08-19T06:00:19.549Z"
+    }
+  ],
+  "notifications": [
+    {
+      "_id": "notif-1787033836458-ts29u",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:17:16.458Z",
+      "isRead": false,
+      "message": "Priya reacted (celebrate) to your post \"Margazhi & Classical Music Gathering at Spaces Arts Compound\".",
+      "recipientId": "user-deepa-member",
+      "referenceId": "post-besant-culture",
+      "referenceType": "post",
+      "title": "Post Reaction",
+      "type": "post_reaction",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "notif-1787033509735-tv07f",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:11:49.735Z",
+      "isRead": false,
+      "message": "Your event \"Heritage Walk: Architecture of Old Besant Nagar & Kalakshetra Colony\" has been approved and is now live on the community calendar.",
+      "recipientId": "user-deepa-member",
+      "referenceId": "event-besant-pending-proposal",
+      "referenceType": "event",
+      "title": "Event Proposal Approved! 🎉",
+      "type": "event_approved",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "notif-1787033404736-fkf8e",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:10:04.736Z",
+      "isRead": true,
+      "message": "Karthik reacted (heart) to your post \"Local News: New Pedestrian Crossings and Tree Canopies Approved for 4th Main Road\".",
+      "recipientId": "user-priya-admin",
+      "referenceId": "post-besant-news",
+      "referenceType": "post",
+      "title": "Post Reaction",
+      "type": "post_reaction",
+      "userId": "user-priya-admin"
+    },
+    {
+      "_id": "notif-1787033397639-zyvkx",
+      "__v": 0,
+      "createdAt": "2026-08-18T06:09:57.639Z",
+      "isRead": false,
+      "message": "Karthik reacted (like) to your post \"Margazhi & Classical Music Gathering at Spaces Arts Compound\".",
+      "recipientId": "user-deepa-member",
+      "referenceId": "post-besant-culture",
+      "referenceType": "post",
+      "title": "Post Reaction",
+      "type": "post_reaction",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "notif-1787032120382-fwrx8",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:48:40.382Z",
+      "isRead": true,
+      "message": "Your request to join Besant Nagar has been approved by Karthik.",
+      "recipientId": "user-priya-admin",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "Membership Approved! 🎉",
+      "type": "membership_approved",
+      "userId": "user-priya-admin"
+    },
+    {
+      "_id": "notif-1787032050220-vp64z",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:47:30.220Z",
+      "isRead": true,
+      "message": "Priya Sundaram requested to join Besant Nagar.",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "New Membership Request",
+      "type": "membership_requested",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1787032050220-fn5tt",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:47:30.220Z",
+      "isRead": true,
+      "message": "Priya Sundaram requested to join Besant Nagar.",
+      "recipientId": "user-arun-admin",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "New Membership Request",
+      "type": "membership_requested",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "notif-1787032042885-3tcla",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:47:22.885Z",
+      "isRead": true,
+      "message": "Priya Sundaram requested to join Besant Nagar.",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "New Membership Request",
+      "type": "membership_requested",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1787032042884-cstim",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:47:22.884Z",
+      "isRead": true,
+      "message": "Priya Sundaram requested to join Besant Nagar.",
+      "recipientId": "user-arun-admin",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "New Membership Request",
+      "type": "membership_requested",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "notif-1787031436024-hz4sf",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:37:16.024Z",
+      "isRead": true,
+      "message": "You have been directly appointed as Community Admin for Besant Nagar by Platform Admin.",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "Community Admin Appointed! 🌟",
+      "type": "role_changed",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1787031426795-zhmwz",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:37:06.795Z",
+      "isRead": true,
+      "message": "Brooklyn Heights has no Community Admins remaining after Platform Administrator left. Please appoint a replacement.",
+      "recipientId": "user-platform-admin",
+      "referenceId": "comm-brooklyn-heights",
+      "referenceType": "community",
+      "title": "Admin-less Community Alert",
+      "type": "community_announcement",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "notif-1787031409499-qr3nb",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:36:49.499Z",
+      "isRead": true,
+      "message": "Priya Sundaram has left Besant Nagar and relinquished their Admin role.",
+      "recipientId": "user-arun-admin",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "Co-Admin Left Community",
+      "type": "co_admin_action",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "notif-1787029610759-3mwhz",
+      "__v": 0,
+      "createdAt": "2026-08-18T05:06:50.759Z",
+      "isRead": true,
+      "message": "Platform reacted (heart) to your post \"Amazing ceremony at the beach\".",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "post-1787029553698",
+      "referenceType": "post",
+      "title": "Post Reaction",
+      "type": "post_reaction",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1",
+      "__v": 0,
+      "createdAt": "2026-02-16T10:30:00.000Z",
+      "isRead": false,
+      "message": "Platform Admin has invited you to become Community Admin for Greenfield Village.",
+      "recipientId": "user-greenfield-candidate",
+      "referenceId": "inv-greenfield-oliver",
+      "referenceType": "invitation",
+      "title": "Community Admin Invitation",
+      "type": "admin_invitation"
+    },
+    {
+      "_id": "notif-2",
+      "__v": 0,
+      "createdAt": "2026-02-12T14:30:00.000Z",
+      "isRead": true,
+      "message": "Priya Sundaram posted an update: \"New Pedestrian Crossings and Tree Canopies Approved\".",
+      "recipientId": "user-arun-admin",
+      "referenceId": "post-besant-news",
+      "referenceType": "post",
+      "title": "Co-Admin Activity",
+      "type": "community_announcement"
+    },
+    {
+      "_id": "notif-3",
+      "__v": 0,
+      "createdAt": "2026-02-12T11:00:00.000Z",
+      "isRead": true,
+      "message": "Your proposal \"Community Book & Seed Exchange\" was approved by Priya Sundaram.",
+      "recipientId": "user-deepa-member",
+      "referenceId": "event-besant-book-exchange",
+      "referenceType": "event",
+      "title": "Event Proposal Approved! 🎉",
+      "type": "event_approved"
+    },
+    {
+      "_id": "notif-1787063650540-7rltq",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:34:10.540Z",
+      "isRead": true,
+      "message": "Deepa Venkat has accepted the Community Moderator appointment for Besant Nagar and is now an active Community Moderator.",
+      "recipientId": "user-arun-admin",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "Community Moderator Appointment Accepted! ✅",
+      "type": "admin_action",
+      "userId": "user-arun-admin"
+    },
+    {
+      "_id": "notif-1787063650543-ki5gh",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:34:10.543Z",
+      "isRead": false,
+      "message": "Deepa Venkat has accepted the Community Moderator appointment for Besant Nagar.",
+      "recipientId": "user-platform-admin",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "Community Moderator Appointment Accepted! ✅",
+      "type": "admin_action",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "notif-1787063650547-616iy",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:34:10.547Z",
+      "isRead": false,
+      "message": "You have accepted the Community Moderator appointment for Besant Nagar. You now have full community administrative privileges.",
+      "recipientId": "user-deepa-member",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "Community Moderator Role Activated! 🌟",
+      "type": "role_changed",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "notif-1787063650551-03i7v",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:34:10.551Z",
+      "isRead": false,
+      "message": "Deepa Venkat accepted the role offer and is now an active Community Moderator in Besant Nagar.",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "comm-besant-nagar",
+      "referenceType": "community",
+      "title": "New Community Moderator Active",
+      "type": "co_admin_action",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1787063673482-p7vq2",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:34:33.482Z",
+      "isRead": false,
+      "message": "Medavakkam has no Community Admins remaining after Deepa Venkat left. Please appoint a replacement.",
+      "recipientId": "user-platform-admin",
+      "referenceId": "comm-medavakkam",
+      "referenceType": "community",
+      "title": "Admin-less Community Alert",
+      "type": "community_announcement",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "notif-1787063856517-0f3ak",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:37:36.517Z",
+      "isRead": true,
+      "message": "Deepa requested new community \"Madurai City\" (Madurai City).",
+      "recipientId": "user-platform-admin",
+      "referenceId": "req-1787063856516",
+      "referenceType": "community",
+      "title": "New Community Creation Request",
+      "type": "community_announcement",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "notif-1787064470765-kxx4x",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:47:50.765Z",
+      "isRead": false,
+      "message": "Your request for \"undefined\" was declined: Declined per locality guidelines",
+      "recipientId": "user-deepa-member",
+      "referenceId": "req-besant-duplicate-test",
+      "referenceType": "community",
+      "title": "Community Request Declined",
+      "type": "community_announcement",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "notif-1787065193664-xqxy1",
+      "__v": 0,
+      "createdAt": "2026-08-18T14:59:53.664Z",
+      "isRead": false,
+      "message": "Official community \"New Community\" is now live and you have been appointed as Community Admin.",
+      "recipientId": "user-deepa-member",
+      "referenceId": "comm-1787065193653",
+      "referenceType": "community",
+      "title": "Community Created & Admin Assigned! 🎉",
+      "type": "role_changed",
+      "userId": "user-deepa-member"
+    },
+    {
+      "_id": "notif-1787116937310-znlfa",
+      "__v": 0,
+      "createdAt": "2026-08-19T05:22:17.310Z",
+      "isRead": false,
+      "message": "Platform Admin (Platform Administrator) has appointed you as Community Admin for Medavakkam. Please accept or decline this administrative appointment.",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "ro-1787116937309-uu6k",
+      "referenceType": "role_offer",
+      "title": "Community Admin Appointment Offer 🌟",
+      "type": "role_offer",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1787116949317-jwc7o",
+      "__v": 0,
+      "createdAt": "2026-08-19T05:22:29.317Z",
+      "isRead": false,
+      "message": "Karthik Raman has accepted the Community Admin appointment for Medavakkam and is now an active Community Admin.",
+      "recipientId": "user-platform-admin",
+      "referenceId": "comm-medavakkam",
+      "referenceType": "community",
+      "title": "Community Admin Appointment Accepted! ✅",
+      "type": "admin_action",
+      "userId": "user-platform-admin"
+    },
+    {
+      "_id": "notif-1787116949322-zlvtc",
+      "__v": 0,
+      "createdAt": "2026-08-19T05:22:29.322Z",
+      "isRead": false,
+      "message": "You have accepted the Community Admin appointment for Medavakkam. You now have full community administrative privileges.",
+      "recipientId": "user-karthik-mod",
+      "referenceId": "comm-medavakkam",
+      "referenceType": "community",
+      "title": "Community Admin Role Activated! 🌟",
+      "type": "role_changed",
+      "userId": "user-karthik-mod"
+    },
+    {
+      "_id": "notif-1787116963730-jj6fv",
+      "__v": 0,
+      "createdAt": "2026-08-19T05:22:43.730Z",
+      "isRead": false,
+      "message": "Your request to join Medavakkam has been approved by Karthik.",
+      "recipientId": "user-arun-admin",
+      "referenceId": "comm-medavakkam",
+      "referenceType": "community",
+      "title": "Membership Approved! 🎉",
+      "type": "membership_approved",
+      "userId": "user-arun-admin"
+    }
+  ]
+}
