@@ -1,0 +1,2139 @@
+
+FISHER COMMUNITY MARKET ACCESS& WEATHER SAFETY PORTAL
+Complete Technical & Product Specification
+
+Document status
+Implementation-ready Phase 1 specification. Global location support is assumed. Only approved Fisher and Buyer accounts can perform marketplace actions; guests may browse public information.
+
+Document item
+Value
+Project type
+Global web portal for fishing communities
+Primary roles
+Guest, Fisher, Buyer, Admin
+Seller model
+Fisher is the seller; no separate Seller role
+Approval model
+Fisher and Buyer registration require Admin approval
+Core domains
+Weather, Marine Conditions, Market Prices, Catch Marketplace, Buyer-Fisher Connections, Administration
+Frontend
+React.js (Vite), HTML5, CSS3, JavaScript
+Backend
+Node.js + Express.js
+Database
+MongoDB + Mongoose
+Deployment
+Vercel / Render / equivalent managed platforms
+Phase 1 payments
+Out of scope
+Document date
+27 August 2026
+
+Prepared as the consolidated technical baseline for implementation and evaluation.
+
+Table of Contents
+1. Product Definition and Vision
+2. Problem Statement
+3. Goals and Objectives
+4. Scope and Phase Boundaries
+5. User Roles and Permission Model
+6. End-to-End Logical Workflow
+7. Information Architecture and Pages
+8. Detailed Functional Requirements
+9. Location and Globalization Model
+10. Weather and Marine Data Architecture
+11. Market Price Architecture
+12. Marketplace and Buyer-Fisher Connection
+13. Administration Workflow
+14. Notifications and Alerts
+15. MongoDB Data Model
+16. MongoDB Collections and Every Field
+17. Indexes, Constraints and Data Integrity
+18. Backend Architecture and API Design
+19. Frontend Architecture and UI Behaviour
+20. Authentication and Security
+21. Validation and Error Handling
+22. Caching, Freshness and External-API Resilience
+23. Non-Functional Requirements
+24. Analytics and KPIs
+25. Testing Strategy
+26. Deployment and Environment Configuration
+27. Project Folder Structure
+28. Acceptance Criteria
+29. Future Enhancements
+30. External Data Sources and References
+
+1. Product Definition and Vision
+The Fisher Community Market Access & Weather Safety Portal is a global, location-aware web platform that combines fishing-market transparency, catch discovery, weather information, marine conditions, safety advisories, and direct buyer-fisher connections in one place.
+Core idea
+Anyone can LOOK at public information. Only an Admin-approved Fisher can LIST catch, and only an Admin-approved Buyer can submit purchase requests or initiate protected marketplace interactions.
+
+1.1 Product loop
+Select / detect location        ↓View weather + marine conditions + safety advisories        ↓View fish prices and market trends        ↓Fisher decides when/where to fish        ↓Fisher catches fish and publishes a catch listing        ↓Buyer searches/filter listings        ↓Buyer sends purchase request        ↓Fisher accepts/rejects        ↓Deal proceeds outside the platform payment system        ↓Listing is marked sold/closed
+
+2. Problem Statement
+Fishers may have limited visibility into current market prices and therefore have weaker negotiating power.
+Dependency on intermediaries can reduce fisher margins and limit direct buyer relationships.
+Weather and sea conditions can change rapidly, creating safety risks when decisions are made without timely information.
+Buyers may struggle to discover available catch directly from local or regional fishers.
+Fishing information is often fragmented across different sources instead of being presented in a single location-aware interface.
+2.1 Product response
+Problem
+Portal response
+Opaque prices
+Location-aware fish price dashboard with timestamp, source and historical trend data.
+Middleman dependency
+Public catch marketplace plus direct buyer-fisher connection.
+Sea/weather uncertainty
+Weather + marine conditions + visible safety warnings and source timestamps.
+Buyer discovery
+Search/filter marketplace with fish type, quantity, location and freshness.
+Fragmented information
+Single dashboard organized around a chosen location.
+
+
+3. Goals and Objectives
+3.1 Primary objectives
+Provide transparent, location-aware fish market price information.
+Enable fishers to publish available catch for public discovery.
+Enable approved buyers to find catch and send purchase requests.
+Present current weather, forecasts and marine conditions for a chosen location.
+Present safety alerts and fishing advisories without claiming that the system guarantees safety.
+Centralize fishing-community information in a responsive web portal.
+3.2 Secondary objectives
+Support price trends by fish species and market.
+Support global location search using latitude/longitude.
+Allow admins to curate fish species, prices and advisories.
+Provide notifications for approvals, buyer requests, weather alerts and marketplace events.
+Record operational KPIs and administrative audit activity.
+
+4. Scope and Phase Boundaries
+4.1 In scope - Phase 1
+Guest browsing of location-based weather, marine conditions, fish prices and public catch listings.
+Fisher registration, approval, login, profile management and catch listing.
+Buyer registration, approval, login, profile management and marketplace search.
+Buyer purchase requests and fisher responses.
+Fish species master catalogue.
+Market price management and price history/trends.
+Weather API and marine API integration.
+Safety alerts/advisories.
+Admin management panel.
+Notifications.
+Audit logs.
+Responsive web design and secure authentication.
+4.2 Out of scope - Phase 1
+Online payment processing or escrow.
+GPS-based live boat tracking.
+IoT ocean-sensor integration.
+Native Android/iOS application.
+Automated maritime navigation or route guidance.
+Guaranteeing safe fishing conditions or replacing official emergency services.
+Complex internal chat platform; Phase 1 uses purchase requests/contact workflow.
+4.3 Phase-1 page requirement
+The implementation should contain at least 6-8 interconnected user-facing/admin pages. The specification below expands that into a practical page set while keeping the required pages identifiable.
+
+5. User Roles and Permission Model
+Role
+Account required?
+Approval
+Can browse
+Can list catch
+Can submit purchase request
+Admin functions
+Guest
+No
+No
+Yes
+No
+No
+No
+Fisher
+Yes
+Yes
+Yes
+Yes
+Yes, only where business rules permit fisher-side contact
+No
+Buyer
+Yes
+Yes
+Yes
+No
+Yes
+No
+Admin
+Yes
+N/A
+Yes
+As needed
+As needed
+Yes
+
+Role simplification
+Do not create a separate Seller role. The Fisher role owns the supply side of the marketplace.
+
+5.1 Account lifecycle
+REGISTER → PENDING → ADMIN REVIEW → APPROVED / REJECTED                                      │                              APPROVED → LOGIN                                      │                           ACTIVE → SUSPENDED / DEACTIVATED
+5.2 Guest rule
+A guest can search/select any supported location and view public data. Authentication is required only when the user attempts a protected action such as creating a catch listing, submitting a purchase request, or accessing private account features.
+
+6. End-to-End Logical Workflow
+6.1 Global user journey
+Landing Page   ↓Choose / Search Location   ↓Location Overview   ├── Weather   ├── Marine Conditions   ├── Safety Alerts   ├── Fish Prices   └── Catch Marketplace          │          ├── Guest → continue browsing          │          └── Registered approved user → protected actions
+6.2 Fisher workflow
+Register as Fisher.
+Account enters pending state; Fisher cannot list catch yet.
+Admin reviews the registration and approves or rejects it.
+Approved Fisher completes or updates profile and location.
+Fisher checks weather, marine conditions, alerts and market prices.
+Fisher creates a catch listing with species, quantity, catch date, location, freshness and asking price.
+Listing becomes publicly visible when valid and active.
+Approved buyers can view the listing and submit a purchase request.
+Fisher reviews incoming request and accepts, rejects or otherwise closes it.
+On completion, Fisher or authorized workflow marks the listing sold/closed.
+6.3 Buyer workflow
+Register as Buyer.
+Account enters pending state.
+Admin verifies and approves/rejects the account.
+Approved Buyer searches the marketplace by fish, location, quantity, price and freshness.
+Buyer opens a listing and views relevant fisher information.
+Buyer submits a purchase request containing quantity, offered price and message.
+Fisher receives notification and reviews the request.
+Fisher accepts/rejects; both parties receive status notifications.
+The actual sale and payment occur outside the Phase-1 platform.
+6.4 Admin workflow
+Login to protected admin area.
+Review pending Fisher and Buyer registrations.
+Approve, reject, suspend or deactivate accounts.
+Manage fish species catalogue.
+Add/update/verify market price records.
+Monitor and moderate public catch listings.
+Create/manage safety alerts and advisories.
+View operational metrics and audit logs.
+
+7. Information Architecture and Pages
+Page
+Audience
+Primary functions
+Landing / Home
+Everyone
+Product explanation, location search, quick weather/market preview, login/register.
+Login
+Registered users
+Email/phone + password login, validation, account-status handling.
+Register
+Guest
+Choose Fisher or Buyer role; collect minimum registration details.
+Location Explorer
+Everyone
+Search place, resolve coordinates, select location.
+Location Overview
+Everyone
+Combined summary of weather, marine conditions, alerts, prices and listings.
+Fish Price Dashboard
+Everyone
+Market prices, filters, market comparison, trends, timestamps and sources.
+Weather & Sea Conditions
+Everyone
+Current weather, forecasts, wave/sea information and warnings.
+Catch Marketplace
+Everyone / approved buyers
+Public listing discovery; protected contact/purchase actions for approved buyers.
+Catch Listing Details
+Everyone
+Catch details, freshness, location, seller/fisher summary, status.
+Fisher Dashboard
+Approved Fisher
+Personal weather, prices, listings, incoming requests and notifications.
+Buyer Dashboard
+Approved Buyer
+Marketplace shortcuts, saved/search context and requests.
+Profile
+Approved users
+User and role-specific profile.
+Admin Dashboard
+Admin
+KPIs and pending work.
+Admin Users
+Admin
+Approval, suspension, account management.
+Admin Listings
+Admin
+Monitoring/moderation.
+Admin Prices
+Admin
+Create/update/verify market prices.
+Admin Alerts
+Admin
+Publish/manage safety advisories.
+Admin Reports/Audit
+Admin
+Reports, activity and audit logs.
+
+
+8. Detailed Functional Requirements
+Authentication & Accounts
+FR-AUTH-01: User can register as exactly one Phase-1 role: Fisher or Buyer.
+FR-AUTH-02: Admin accounts are provisioned securely and are not created through public registration.
+FR-AUTH-03: Newly registered Fisher/Buyer accounts have pending approval status.
+FR-AUTH-04: Pending users cannot perform protected marketplace actions.
+FR-AUTH-05: Admin can approve or reject pending registrations and must record the decision time and optional reason.
+FR-AUTH-06: Approved users can authenticate using secure password-based authentication.
+FR-AUTH-07: Suspended/deactivated accounts cannot use protected APIs.
+Fisher
+FR-FISH-01: Fisher can maintain profile, fishing location and boat details.
+FR-FISH-02: Fisher can view prices, weather, marine data and alerts for selected locations.
+FR-FISH-03: Fisher can create, edit, cancel and close own catch listings.
+FR-FISH-04: Fisher cannot create a listing while account is not approved.
+FR-FISH-05: Fisher can review incoming purchase requests on own listings.
+FR-FISH-06: Fisher receives notifications for requests and important platform alerts.
+Buyer
+FR-BUY-01: Buyer can browse public listings without an account.
+FR-BUY-02: Approved Buyer can submit purchase requests.
+FR-BUY-03: Purchase request must reference an active listing and valid quantity.
+FR-BUY-04: Buyer can view own requests and statuses.
+FR-BUY-05: Buyer can receive status notifications.
+Market Prices
+FR-PRICE-01: Public users can search prices by location, market and species.
+FR-PRICE-02: Price records must include update time and source metadata.
+FR-PRICE-03: Admin can create/update/verify price records.
+FR-PRICE-04: Historical records can feed trend charts.
+FR-PRICE-05: Currency must be explicit; the UI must not silently assume the local currency.
+Weather & Marine
+FR-WX-01: User can select/search a location and retrieve current weather.
+FR-WX-02: User can view forecast information.
+FR-WX-03: User can view wind, temperature, precipitation, visibility and related fields available from the configured provider.
+FR-WX-04: User can view wave height, wave direction, wave period, swell and sea-surface temperature where marine data is available.
+FR-WX-05: System displays source and data timestamp/freshness information.
+FR-WX-06: Safety advisories are visibly distinct from ordinary forecast data.
+FR-WX-07: The interface does not state that a forecast guarantees safe conditions.
+Administration
+FR-ADM-01: Admin can approve/reject users.
+FR-ADM-02: Admin can suspend/deactivate users.
+FR-ADM-03: Admin can manage species.
+FR-ADM-04: Admin can manage market price data.
+FR-ADM-05: Admin can manage safety alerts.
+FR-ADM-06: Admin can moderate catch listings.
+FR-ADM-07: Admin can view reports and audit logs.
+
+9. Location and Globalization Model
+The portal is global by design. No module should assume India, a particular currency, or a fixed set of countries. A location should resolve to coordinates and a standard place representation.
+9.1 Location selection
+User enters a city/place/postal code or selects a map/location result.
+Geocoding resolves the search to latitude, longitude, country, region and timezone.
+The selected location ID/coordinates become the context for weather, marine data, market lookup and nearby listings.
+Guests can repeat the process for any supported location.
+9.2 Coordinates
+MongoDB GeoJSON Point{  type: "Point",  coordinates: [longitude, latitude]}Use a 2dsphere index for spherical proximity queries.
+MongoDB documents that GeoJSON coordinates use longitude first and latitude second, and that 2dsphere indexes support earth-like spherical proximity queries. [MongoDB documentation]
+9.3 Globalization fields
+Country and ISO country code.
+State/province/region where applicable.
+Timezone.
+Currency code for market/listing prices.
+Localized fish names where available.
+Metric/imperial display preference if added later.
+
+10. Weather and Marine Data Architecture
+10.1 Provider model
+Use a provider abstraction in the backend so the UI never depends directly on a third-party API response shape. The backend normalizes external fields into the application schema.
+React UI   ↓Express API   ↓Weather/Machine Data Service   ├── Weather Provider (e.g., Tomorrow.io)   └── Marine/Forecast Provider (e.g., Open-Meteo Marine)   ↓Normalized response + cache   ↓React UI
+10.2 Weather data
+Temperature / apparent temperature.
+Humidity and pressure where available.
+Wind speed and direction.
+Precipitation amount/probability.
+Visibility.
+Cloud cover / UV where available.
+Current conditions and hourly/daily forecast.
+Provider source and fetched/observed timestamps.
+10.3 Marine data
+Wave height.
+Wave direction.
+Wave period.
+Wind-wave metrics where available.
+Swell height/direction/period.
+Sea-surface temperature.
+Ocean current velocity/direction where available.
+Sea-state classification derived by application rules, with the underlying numeric data preserved.
+Open-Meteo currently documents a Marine API that exposes wave height, wave direction, wave period, swell variables, sea-surface temperature and ocean-current variables. Its documented marine datasets are model-based and have different update frequencies; the provider explicitly warns that some coastal data are not suitable for navigation. [Open-Meteo Marine API]
+10.4 Current vs forecast semantics
+Important
+“Current” in an API does not necessarily mean a live sensor reading at the exact requested coordinate. The UI must show the provider, observation/model timestamp and last refresh time. Weather forecasts are model outputs; marine coverage and quality can vary by region.
+
+Tomorrow.io documents a Realtime Weather endpoint that returns current weather information for a requested location, with a minute-level temporal resolution in the API description. Open-Meteo documents current/forecast weather and marine model outputs whose source models are updated on schedules rather than continuously at every coordinate. [Tomorrow.io Realtime Weather; Open-Meteo model and marine docs]
+10.5 Safety disclaimer requirement
+The portal may classify conditions as informational labels such as Low / Moderate / High risk, but safety-critical warnings should carry their external source and timestamp. The application must not present a generated classification as an official maritime safety warning unless the underlying source explicitly provides that warning.
+
+11. Market Price Architecture
+11.1 Price source strategy
+Phase 1 supports admin-curated prices and future external feeds. The data model records sourceType, sourceName, sourceUrl, update time and verification status so users can judge freshness and provenance.
+11.2 Public price workflow
+Location Search → Market Selection → Species Selection                     ↓                 latest price                     ↓             historical price series                     ↓               trend chart / table
+11.3 Required price display
+Species name.
+Market name/location.
+Currency and unit (e.g., USD/kg).
+Current/latest price.
+Minimum/maximum/average if available.
+Last updated timestamp.
+Source and verification state.
+Trend over selected historical range.
+
+12. Marketplace and Buyer-Fisher Connection
+12.1 Catch listing lifecycle
+DRAFT → ACTIVE → RESERVED / PARTIALLY_SOLD → SOLD                       │                       ├→ EXPIRED                       └→ CANCELLED / REMOVED
+12.2 Listing rules
+Only approved Fisher accounts can create listings.
+Listing must reference an active fish species and valid catch location.
+Quantity must be greater than zero.
+Catch date cannot be impossible or outside defined business rules.
+Asking price must be non-negative and currency required.
+Only the owning Fisher or authorized Admin can edit/remove a listing.
+Inactive, sold, expired or removed listings cannot receive new purchase requests.
+Public viewers can see only data intended to be public; private contact details should not be exposed unnecessarily.
+12.3 Purchase request lifecycle
+PENDING → ACCEPTED → COMPLETED       └→ REJECTED       └→ CANCELLED
+12.4 Phase-1 transaction boundary
+A purchase request is an expression of buyer intent and a connection mechanism. It is not a payment transaction. Payment, invoicing, escrow, shipping and legal trade settlement are outside Phase 1.
+
+13. Administration Workflow
+Admin area
+Actions
+Audit required
+Users
+Search, approve, reject, suspend, deactivate
+Yes
+Fish species
+Create, edit, activate/deactivate
+Yes
+Market prices
+Create, update, verify, correct
+Yes
+Catch listings
+Review, remove, restore if appropriate
+Yes
+Safety alerts
+Publish, edit, cancel, expire
+Yes
+Reports
+View/export operational metrics
+View only; access logged
+
+13.1 Approval review
+Admin opens pending queue.
+Admin reviews registration information.
+Admin chooses Approve or Reject.
+System updates account status and timestamps decision.
+System creates notification.
+System writes audit log.
+
+14. Notifications and Alerts
+Event
+Recipient
+Notification
+Account approved
+Fisher/Buyer
+Your account is approved.
+Account rejected
+Fisher/Buyer
+Registration rejected + reason if supplied.
+Purchase request created
+Fisher
+New buyer request for your listing.
+Purchase request accepted/rejected
+Buyer
+Request status changed.
+High-severity safety alert
+Users in affected area
+Safety alert with source and validity period.
+Listing expiring
+Fisher
+Listing is approaching expiry.
+
+For public safety information, avoid relying solely on in-app notifications. The page itself should show active warnings whenever the user selects the affected location.
+
+15. MongoDB Data Model
+The Phase-1 MongoDB design uses 13 core collections. The model is intentionally normalized where there is shared/master data and embedded where the data is tightly coupled to a profile or event.
+Collection
+Purpose
+Primary relationships
+users
+Authentication, role and approval state
+user → fisher_profile / buyer_profile
+fisher_profiles
+Fisher-specific data
+user; locations; species
+buyer_profiles
+Buyer/business data
+user; locations; species
+locations
+Global places and GeoJSON coordinates
+weather, marine, prices, listings
+fish_species
+Master species catalogue
+prices, listings, preferences
+market_prices
+Current/historical market prices
+species + market location
+weather_data
+Cached normalized weather
+location
+marine_data
+Cached normalized marine conditions
+location
+safety_alerts
+Warnings/advisories
+location + optional affected polygon
+catch_listings
+Fisher inventory for marketplace
+fisher + species + locations
+purchase_requests
+Buyer-to-fisher request
+listing + buyer + fisher
+notifications
+User notifications
+user + referenced entity
+audit_logs
+Security/administrative trail
+actor user + affected entity
+
+
+16. MongoDB Collections and Every Field
+16.1 users
+Central identity, authentication, role and approval record.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Primary document ID.
+fullName
+String
+Yes
+Display/legal name used by the account.
+email
+String
+Conditional
+Unique email when provided; normalized lowercase.
+phone
+String
+Conditional
+Unique phone when provided, stored in normalized form.
+passwordHash
+String
+Yes
+Argon2id/bcrypt hash; never store plaintext.
+role
+Enum String
+Yes
+fisher | buyer | admin.
+accountStatus
+Enum String
+Yes
+pending | approved | rejected | suspended | deactivated.
+approvalStatus
+Enum String
+Yes
+pending | approved | rejected.
+approvedBy
+ObjectId
+Conditional
+Admin user who approved/rejected account.
+approvedAt
+Date
+Conditional
+Approval decision timestamp.
+rejectionReason
+String
+No
+Admin reason for rejection.
+profileCompleted
+Boolean
+Yes
+Whether required role profile fields are completed.
+emailVerified
+Boolean
+Yes
+Email verification flag if email verification is implemented.
+phoneVerified
+Boolean
+Yes
+Phone verification flag if phone verification is implemented.
+lastLoginAt
+Date
+No
+Last successful login.
+isActive
+Boolean
+Yes
+Application-level active flag.
+createdAt
+Date
+Yes
+Creation timestamp.
+updatedAt
+Date
+Yes
+Last update timestamp.
+
+16.2 fisher_profiles
+Fisher-specific profile data.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Profile ID.
+userId
+ObjectId
+Yes
+Reference to users._id; unique one-to-one.
+profilePhoto
+String
+No
+URL to profile image.
+dateOfBirth
+Date
+No
+Date of birth if collected and legally appropriate.
+fishingExperienceYears
+Number
+No
+Years of fishing experience.
+fishingType
+Enum String
+No
+small_scale | commercial | traditional.
+primaryLocationId
+ObjectId
+Yes
+Main fishing location.
+fishingLocations
+Array
+No
+Objects containing locationId and isPrimary.
+boatDetails
+Object
+No
+Boat information subdocument.
+boatDetails.hasBoat
+Boolean
+No
+Whether fisher operates a boat.
+boatDetails.boatName
+String
+No
+Boat name.
+boatDetails.boatType
+String
+No
+Boat category/type.
+boatDetails.registrationNumber
+String
+No
+Boat registration identifier if applicable.
+boatDetails.boatCapacityKg
+Number
+No
+Approximate cargo capacity.
+fishingMethods
+Array[String]
+No
+Fishing methods used.
+preferredFishSpecies
+Array[ObjectId]
+No
+Species of interest.
+preferredMarkets
+Array[ObjectId]
+No
+Preferred market location IDs.
+bio
+String
+No
+Public profile description.
+address
+Object
+No
+Structured address.
+address.addressLine1
+String
+No
+Address line.
+address.addressLine2
+String
+No
+Additional address line.
+address.city
+String
+No
+City.
+address.stateProvince
+String
+No
+State/region.
+address.postalCode
+String
+No
+Postal code.
+address.country
+String
+No
+Country.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Last update time.
+
+16.3 buyer_profiles
+Buyer/business-specific profile data.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Profile ID.
+userId
+ObjectId
+Yes
+Reference to users._id; unique one-to-one.
+profilePhoto
+String
+No
+Profile image URL.
+buyerType
+Enum String
+Yes
+wholesaler | retailer | restaurant | seafood_market | processor | other.
+businessName
+String
+Conditional
+Business name when applicable.
+businessRegistrationNumber
+String
+No
+Registration identifier if applicable.
+primaryLocationId
+ObjectId
+Yes
+Primary operating location.
+operatingLocations
+Array
+No
+Location references + isPrimary.
+interestedFishSpecies
+Array[ObjectId]
+No
+Species buyer is interested in.
+preferredPurchaseQuantityKg
+Object
+No
+Minimum and maximum desired quantities.
+preferredPurchaseQuantityKg.minimum
+Number
+No
+Minimum preferred quantity.
+preferredPurchaseQuantityKg.maximum
+Number
+No
+Maximum preferred quantity.
+address
+Object
+No
+Structured address.
+address.addressLine1
+String
+No
+Address line.
+address.addressLine2
+String
+No
+Additional address line.
+address.city
+String
+No
+City.
+address.stateProvince
+String
+No
+State/region.
+address.postalCode
+String
+No
+Postal code.
+address.country
+String
+No
+Country.
+bio
+String
+No
+Public business description.
+website
+String
+No
+Business website.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Last update time.
+
+16.4 locations
+Canonical global location records and coordinates.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Location ID.
+name
+String
+Yes
+Display place name.
+type
+Enum String
+Yes
+country | state | city | coastal_area | port | market | fishing_zone.
+country
+String
+Yes
+Country name.
+countryCode
+String
+Yes
+ISO-style country code.
+stateProvince
+String
+No
+State/region.
+city
+String
+No
+City.
+district
+String
+No
+District/administrative area.
+postalCode
+String
+No
+Postal/postal-like code where applicable.
+timezone
+String
+Yes
+IANA timezone name.
+coordinates
+GeoJSON Point
+Yes
+Point with [longitude, latitude].
+parentLocationId
+ObjectId
+No
+Hierarchical parent location.
+isCoastal
+Boolean
+Yes
+Whether the location is coastal/relevant to marine data.
+isActive
+Boolean
+Yes
+Whether selectable by the platform.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Last update time.
+
+16.5 fish_species
+Master fish catalogue.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Species ID.
+commonName
+String
+Yes
+Primary display/common name.
+scientificName
+String
+No
+Scientific name.
+localNames
+Array[Object]
+No
+Name + language pairs.
+category
+String
+No
+Fish/group category.
+description
+String
+No
+Description.
+imageUrl
+String
+No
+Public species image.
+averageSizeKg
+Number
+No
+Reference average size; informational only.
+isActive
+Boolean
+Yes
+Whether available for new listings.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.6 market_prices
+Fish market price history and current records.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Price record ID.
+fishSpeciesId
+ObjectId
+Yes
+Reference to fish_species.
+marketLocationId
+ObjectId
+Yes
+Reference to locations for market.
+marketName
+String
+Yes
+Human-readable market name snapshot.
+price
+Number
+Yes
+Primary price value.
+currency
+String
+Yes
+ISO-like currency code.
+unit
+String
+Yes
+Unit such as kg.
+minimumPrice
+Number
+No
+Minimum observed/quoted price.
+maximumPrice
+Number
+No
+Maximum observed/quoted price.
+averagePrice
+Number
+No
+Average price.
+priceDate
+Date
+Yes
+Market date/effective date.
+priceUpdatedAt
+Date
+Yes
+When record was last updated.
+sourceType
+Enum String
+Yes
+admin | external_api | government | market_data.
+sourceName
+String
+Yes
+Source/provider name.
+sourceUrl
+String
+No
+Source page/API reference.
+dataStatus
+Enum String
+Yes
+verified | unverified | expired.
+createdBy
+ObjectId
+No
+User/admin who created record.
+updatedBy
+ObjectId
+No
+User/admin who last updated.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.7 weather_data
+Normalized/cached weather data for selected locations.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Weather record ID.
+locationId
+ObjectId
+Yes
+Reference to locations.
+latitude
+Number
+Yes
+Requested/used latitude.
+longitude
+Number
+Yes
+Requested/used longitude.
+observedAt
+Date
+Yes
+Observation/model timestamp represented by data.
+dataSource
+String
+Yes
+Provider name.
+temperature
+Object
+No
+Value and unit.
+temperature.value
+Number
+No
+Temperature value.
+temperature.unit
+String
+No
+C/F.
+feelsLike
+Object
+No
+Feels-like value/unit.
+humidity
+Number
+No
+Relative humidity percent.
+pressure
+Object
+No
+Pressure value and unit.
+wind
+Object
+No
+Wind speed/direction.
+wind.speed
+Number
+No
+Wind speed.
+wind.speedUnit
+String
+No
+Wind speed unit.
+wind.direction
+Number
+No
+Wind direction degrees.
+wind.directionUnit
+String
+No
+Degree unit.
+precipitation
+Object
+No
+Amount/probability.
+precipitation.amount
+Number
+No
+Precipitation amount.
+precipitation.probability
+Number
+No
+Probability percent.
+precipitation.unit
+String
+No
+Unit.
+visibility
+Object
+No
+Visibility value/unit.
+visibility.value
+Number
+No
+Visibility.
+visibility.unit
+String
+No
+Distance unit.
+cloudCover
+Number
+No
+Cloud cover percent.
+weatherCondition
+String
+No
+Normalized description.
+uvIndex
+Number
+No
+UV index if available.
+weatherCode
+String
+No
+Provider/normalized code.
+forecastType
+Enum String
+Yes
+current | hourly | daily.
+forecastFor
+Date
+No
+Forecast target timestamp/day.
+fetchedAt
+Date
+Yes
+When our backend fetched the data.
+expiresAt
+Date
+No
+Application cache expiration.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.8 marine_data
+Normalized/cached marine/ocean conditions.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Marine record ID.
+locationId
+ObjectId
+Yes
+Reference to locations.
+latitude
+Number
+Yes
+Requested/used latitude.
+longitude
+Number
+Yes
+Requested/used longitude.
+observedAt
+Date
+Yes
+Source data/model timestamp.
+dataSource
+String
+Yes
+Marine provider/model.
+wave
+Object
+No
+Wave height/direction/period.
+wave.height
+Number
+No
+Significant/mean wave height as supplied.
+wave.heightUnit
+String
+No
+Usually metres.
+wave.direction
+Number
+No
+Direction waves come from.
+wave.directionUnit
+String
+No
+Degrees.
+wave.period
+Number
+No
+Wave period seconds.
+wave.periodUnit
+String
+No
+Seconds.
+swell
+Object
+No
+Swell metrics.
+swell.height
+Number
+No
+Swell height.
+swell.direction
+Number
+No
+Swell direction.
+swell.period
+Number
+No
+Swell period.
+seaSurfaceTemperature
+Object
+No
+SST value/unit.
+seaSurfaceTemperature.value
+Number
+No
+SST.
+seaSurfaceTemperature.unit
+String
+No
+Usually C.
+oceanCurrent
+Object
+No
+Current speed/direction.
+oceanCurrent.speed
+Number
+No
+Current speed.
+oceanCurrent.direction
+Number
+No
+Current direction.
+seaCondition
+Enum String
+No
+calm | moderate | rough | very_rough; application classification.
+forecastType
+String
+Yes
+Current/forecast classification.
+forecastFor
+Date
+No
+Forecast target timestamp.
+fetchedAt
+Date
+Yes
+Backend fetch time.
+expiresAt
+Date
+No
+Cache expiration.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.9 safety_alerts
+Official/source-backed safety alerts and platform advisories.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Alert ID.
+title
+String
+Yes
+Alert title.
+message
+String
+Yes
+Alert body.
+alertType
+Enum String
+Yes
+storm | high_waves | strong_wind | heavy_rain | cyclone | marine_warning | general.
+severity
+Enum String
+Yes
+low | moderate | high | extreme.
+locationId
+ObjectId
+No
+Primary affected location.
+affectedArea
+GeoJSON Polygon
+No
+Optional polygon for affected region.
+issuedAt
+Date
+Yes
+Issue time.
+effectiveFrom
+Date
+Yes
+Start of validity.
+effectiveUntil
+Date
+No
+End of validity.
+sourceType
+Enum String
+Yes
+admin | external.
+sourceName
+String
+Yes
+Issuing source.
+sourceUrl
+String
+No
+Source link/reference.
+recommendations
+Array[String]
+No
+Safety/action text.
+status
+Enum String
+Yes
+active | expired | cancelled.
+createdBy
+ObjectId
+Yes
+Admin or integration account.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.10 catch_listings
+Public catch inventory created by approved fishers.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Listing ID.
+fisherId
+ObjectId
+Yes
+Reference to users._id of owning Fisher.
+fishSpeciesId
+ObjectId
+Yes
+Reference to fish_species.
+title
+String
+Yes
+Human-readable listing title.
+description
+String
+No
+Catch description.
+quantityAvailableKg
+Number
+Yes
+Current available quantity.
+originalQuantityKg
+Number
+Yes
+Initial listed quantity.
+askingPricePerKg
+Number
+Yes
+Asking price per kilogram.
+currency
+String
+Yes
+Listing currency.
+totalEstimatedValue
+Number
+No
+Derived value from available quantity x asking price.
+catchDate
+Date
+Yes
+Date catch was obtained.
+listingDate
+Date
+Yes
+Date published.
+freshness
+Enum String
+Yes
+very_fresh | fresh | chilled | frozen.
+storageMethod
+Enum String
+No
+ice | refrigerated | frozen | none.
+catchLocationId
+ObjectId
+Yes
+Where catch was obtained.
+landingLocationId
+ObjectId
+No
+Where catch was landed/available.
+availableUntil
+Date
+No
+Listing expiry.
+images
+Array[Object]
+No
+Image URL + caption.
+minimumOrderQuantityKg
+Number
+No
+Minimum acceptable requested quantity.
+listingStatus
+Enum String
+Yes
+active | reserved | partially_sold | sold | expired | cancelled | removed.
+visibility
+String
+Yes
+public in Phase 1.
+viewsCount
+Number
+Yes
+Public page view count.
+contactCount
+Number
+Yes
+Count of connection actions.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.11 purchase_requests
+Buyer request against a specific catch listing.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Request ID.
+listingId
+ObjectId
+Yes
+Reference to catch_listings.
+buyerId
+ObjectId
+Yes
+Buyer users._id.
+fisherId
+ObjectId
+Yes
+Fisher users._id snapshot/reference.
+requestedQuantityKg
+Number
+Yes
+Buyer requested quantity.
+offeredPricePerKg
+Number
+No
+Optional buyer offer.
+currency
+String
+Yes
+Request currency.
+message
+String
+No
+Buyer message.
+requestStatus
+Enum String
+Yes
+pending | accepted | rejected | cancelled | completed.
+fisherResponseMessage
+String
+No
+Fisher response.
+respondedAt
+Date
+No
+Response timestamp.
+completedAt
+Date
+No
+Completion timestamp.
+createdAt
+Date
+Yes
+Creation time.
+updatedAt
+Date
+Yes
+Update time.
+
+16.12 notifications
+Per-user notification inbox.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Notification ID.
+userId
+ObjectId
+Yes
+Recipient users._id.
+type
+Enum String
+Yes
+account_approved | account_rejected | purchase_request | request_accepted | request_rejected | weather_alert | market_price_update | listing_expiring | system.
+title
+String
+Yes
+Notification title.
+message
+String
+Yes
+Notification body.
+referenceType
+String
+No
+Entity type associated with notification.
+referenceId
+ObjectId
+No
+Referenced entity ID.
+isRead
+Boolean
+Yes
+Read flag.
+readAt
+Date
+No
+Read timestamp.
+createdAt
+Date
+Yes
+Creation timestamp.
+
+16.13 audit_logs
+Security and admin activity history.
+Field
+Type
+Required
+Description
+_id
+ObjectId
+Yes
+Audit ID.
+userId
+ObjectId
+Yes
+Actor users._id.
+role
+String
+Yes
+Actor role at time of action.
+action
+String
+Yes
+Action name such as APPROVE_USER or REMOVE_LISTING.
+entityType
+String
+Yes
+Affected entity collection/domain.
+entityId
+ObjectId
+No
+Affected document ID.
+description
+String
+No
+Human-readable action summary.
+previousData
+Object
+No
+Relevant before-state snapshot; do not log secrets.
+newData
+Object
+No
+Relevant after-state snapshot; do not log secrets.
+ipAddress
+String
+No
+Request IP if policy permits.
+userAgent
+String
+No
+Client user-agent if needed.
+createdAt
+Date
+Yes
+Audit timestamp.
+
+
+17. Indexes, Constraints and Data Integrity
+17.1 Required indexes
+Collection
+Index
+Reason
+users
+email unique (when present)
+Prevent duplicate accounts by email.
+users
+phone unique (when present)
+Prevent duplicate accounts by phone.
+users
+{role:1, accountStatus:1}
+Admin pending/role filters.
+fisher_profiles
+userId unique
+One profile per Fisher.
+buyer_profiles
+userId unique
+One profile per Buyer.
+locations
+coordinates: 2dsphere
+Nearby search and distance queries.
+locations
+{countryCode:1, name:1}
+Location search/filter.
+fish_species
+{commonName:1}
+Species search.
+market_prices
+{fishSpeciesId:1, marketLocationId:1, priceDate:-1}
+Latest/historical prices.
+weather_data
+{locationId:1, forecastFor:1, observedAt:-1}
+Latest weather retrieval.
+marine_data
+{locationId:1, forecastFor:1, observedAt:-1}
+Latest marine retrieval.
+safety_alerts
+{locationId:1, status:1, effectiveFrom:1}
+Active warning queries.
+catch_listings
+{listingStatus:1, fishSpeciesId:1, catchLocationId:1, listingDate:-1}
+Marketplace filtering.
+purchase_requests
+{listingId:1, requestStatus:1}
+Request management.
+notifications
+{userId:1, isRead:1, createdAt:-1}
+Notification inbox.
+audit_logs
+{userId:1, createdAt:-1}
+Actor history.
+
+17.2 GeoJSON requirement
+Store coordinates as GeoJSON Point with [longitude, latitude] and create a 2dsphere index. MongoDB explicitly supports $near, $nearSphere and $geoNear for proximity queries with 2dsphere indexes. [MongoDB geospatial documentation]
+17.3 Referential integrity
+Mongoose refs should be used for logical references.
+Application service layer must verify referenced entities exist and are active.
+Deleting core master data should generally be soft deletion/deactivation, not destructive hard deletion.
+Purchase requests should retain enough reference context for historical display even if a species or user later becomes inactive.
+
+18. Backend Architecture and API Design
+18.1 Architecture
+React Frontend     │ HTTPS     ▼Node.js + Express API     │     ├── Auth Service     ├── User/Profile Service     ├── Location Service     ├── Market Price Service     ├── Weather Service     ├── Marine Service     ├── Safety Alert Service     ├── Marketplace Service     ├── Purchase Request Service     ├── Notification Service     └── Admin/Audit Service     │     ├── MongoDB Atlas     └── External APIs
+18.2 REST endpoint baseline
+Method
+Endpoint
+Access
+Purpose
+POST
+/api/auth/register
+Guest
+Register Fisher/Buyer
+POST
+/api/auth/login
+Public
+Authenticate
+GET
+/api/auth/me
+Authenticated
+Current user
+POST
+/api/auth/logout
+Authenticated
+Invalidate session/token strategy if applicable
+GET
+/api/locations/search
+Public
+Search locations/geocode
+GET
+/api/locations/:id
+Public
+Location details
+GET
+/api/weather
+Public
+Weather for coordinates/location
+GET
+/api/marine
+Public
+Marine/wave data
+GET
+/api/safety-alerts
+Public
+Active alerts by location
+GET
+/api/species
+Public
+Species catalogue
+GET
+/api/market-prices
+Public
+Price records
+GET
+/api/market-prices/trends
+Public
+Historical trend
+GET
+/api/listings
+Public
+Marketplace search
+GET
+/api/listings/:id
+Public
+Listing details
+POST
+/api/listings
+Fisher
+Create listing
+PATCH
+/api/listings/:id
+Fisher/Admin
+Edit listing
+DELETE
+/api/listings/:id
+Fisher/Admin
+Cancel/remove listing
+POST
+/api/purchase-requests
+Buyer
+Submit request
+GET
+/api/purchase-requests/mine
+Buyer/Fisher
+Own relevant requests
+PATCH
+/api/purchase-requests/:id
+Buyer/Fisher
+Update allowed status
+GET
+/api/notifications
+Authenticated
+List notifications
+PATCH
+/api/notifications/:id/read
+Authenticated
+Mark read
+GET
+/api/admin/users/pending
+Admin
+Pending approvals
+PATCH
+/api/admin/users/:id/approve
+Admin
+Approve
+PATCH
+/api/admin/users/:id/reject
+Admin
+Reject
+PATCH
+/api/admin/users/:id/suspend
+Admin
+Suspend
+POST
+/api/admin/market-prices
+Admin
+Create price
+PATCH
+/api/admin/market-prices/:id
+Admin
+Update price
+POST
+/api/admin/alerts
+Admin
+Publish alert
+PATCH
+/api/admin/alerts/:id
+Admin
+Manage alert
+GET
+/api/admin/reports/overview
+Admin
+Dashboard KPIs
+GET
+/api/admin/audit-logs
+Admin
+Audit history
+
+18.3 Service rules
+Controllers handle HTTP input/output only.
+Services contain business rules and orchestration.
+Repositories/models handle MongoDB persistence.
+External API adapters normalize provider-specific responses.
+Authorization middleware checks role and accountStatus before protected service calls.
+Never expose passwordHash or secret provider credentials.
+
+19. Frontend Architecture and UI Behaviour
+19.1 Suggested React structure
+src/  app/  components/  pages/    public/    auth/    fisher/    buyer/    admin/  features/    weather/    marine/    marketPrices/    marketplace/    alerts/    notifications/    locations/  services/  hooks/  context/  utils/  validators/  assets/
+19.2 UI principles
+Mobile-responsive first; many target users will access through phones.
+Location should be visible in the header/context of data-heavy pages.
+Use explicit timestamps: “Data updated at …” rather than vague “live”.
+Safety alerts must have strong visual hierarchy and accessible text, not color alone.
+Price currency and unit must always be displayed together.
+Listings should show catch date and freshness prominently.
+Protected actions should be visually distinguishable but browsing should remain open.
+Do not expose private phone/email fields to every public visitor; use platform contact workflow.
+19.3 Main Fisher dashboard blocks
+Widget
+Data source
+Selected location
+locations
+Weather summary
+weather_data / live provider
+Marine summary
+marine_data / live provider
+Safety alerts
+safety_alerts
+Today’s/selected market prices
+market_prices
+My active listings
+catch_listings
+Incoming requests
+purchase_requests
+Notifications
+notifications
+
+
+20. Authentication and Security
+20.1 Authentication
+Hash passwords using Argon2id or bcrypt with a strong work factor.
+Use HTTPS in production.
+Use short-lived access tokens or secure server-side sessions; refresh-token strategy should be implemented securely if JWT is chosen.
+Never store access tokens in insecure long-lived browser storage when a safer HTTP-only cookie architecture is practical.
+Rate-limit login and registration endpoints.
+Return generic authentication errors to avoid account enumeration.
+20.2 Authorization
+isAuthenticated      ↓accountStatus === approved?      ↓role allowed for endpoint?      ↓resource ownership check?      ↓service operation
+20.3 Data protection
+Never return passwordHash.
+Protect private contact data from public listing APIs.
+Do not log passwords, tokens or API keys in audit logs.
+Sanitize and validate uploaded image/file metadata.
+Validate URLs before storing public image/source links.
+Use environment variables for external API credentials.
+Use security headers (e.g., Helmet in Express) and strict CORS configuration.
+Add request size limits and input sanitization against injection/XSS/NoSQL-injection risks.
+20.4 External API keys
+Third-party API credentials belong in the backend environment, never in React source code. The browser should call your API; your API calls the provider.
+
+21. Validation and Error Handling
+Object
+Key validation rules
+Registration
+Valid role; unique identity; strong password; required fields; country/location validity.
+Location
+Latitude -90..90; longitude -180..180; valid GeoJSON order.
+Market price
+Price >= 0; currency required; unit required; valid species and market location.
+Catch listing
+Quantity > 0; price >= 0; valid species; catch date; approved Fisher ownership.
+Purchase request
+Approved Buyer; active listing; quantity > 0; quantity <= available quantity; valid currency.
+Safety alert
+Severity/type; source; validity period; valid affected location.
+
+21.1 API error format
+{  "success": false,  "error": {    "code": "LISTING_NOT_AVAILABLE",    "message": "This catch listing is no longer accepting requests.",    "details": []  },  "requestId": "..."}
+21.2 Common errors
+400 Bad Request: invalid input.
+401 Unauthorized: authentication missing/invalid.
+403 Forbidden: role/status/ownership disallows action.
+404 Not Found: resource unavailable.
+409 Conflict: duplicate identity or conflicting state transition.
+429 Too Many Requests: rate limit exceeded.
+502/503: external provider unavailable or degraded; return cached data when safe.
+
+22. Caching, Freshness and External-API Resilience
+22.1 Why caching is required
+Do not call a third-party weather API directly on every component render or every visitor interaction. That would waste quota, increase latency and make the site fragile. Cache by location/time window and let the backend serve a consistent normalized response.
+22.2 Suggested cache strategy
+Data
+Suggested approach
+Freshness principle
+Current weather
+Short TTL cache per location/forecast cell
+Refresh when stale; show fetchedAt/observedAt.
+Hourly forecast
+Longer TTL than current weather
+Refresh when provider model changes or cache expires.
+Marine data
+Cache per location + model timestamp
+Show source/model timestamp; avoid implying live sensor data.
+Safety alerts
+Short TTL + explicit validity dates
+Prefer fresher warning feed; do not hide active alerts.
+Market prices
+Persist latest records + history
+Show market date and updated timestamp.
+
+22.3 Provider fallback
+Primary provider unavailable → serve last known cached data with a visible stale indicator when the data is still acceptable.
+No usable data → show a clear unavailable state rather than fabricated values.
+Never silently substitute a different source without marking the source.
+Use retries with exponential backoff and hard request timeouts.
+Centralize provider-specific logic so switching providers does not change React components.
+22.4 Verified provider facts for current implementation
+Open-Meteo currently states that its free/open-access API is for non-commercial use and is limited to 10,000 calls/day, 5,000/hour and 600/minute; its documentation also states that weather model data are typically updated every few hours. Open-Meteo provides global marine model products but their update frequencies vary by model. [Open-Meteo pricing/model/marine docs]
+Tomorrow.io currently documents a Realtime Weather API and a Free API plan with 500 requests/day, 25/hour and 3 requests/second. These limits and plan terms can change, so the production project should verify the provider terms at deployment time. [Tomorrow.io Realtime Weather and Free Plan docs]
+
+23. Non-Functional Requirements
+Area
+Requirement
+Security
+Secure authentication, authorization, input validation and protected credentials.
+Performance
+Common public pages should render quickly; API responses should avoid unnecessary provider round trips.
+Responsiveness
+Usable on mobile, tablet and desktop.
+Availability
+Application should degrade gracefully when third-party data providers fail.
+Scalability
+API, database indexes and provider abstraction should support growth.
+Accessibility
+Readable contrast, keyboard navigation, semantic structure and non-color-only alerts.
+Observability
+Server logs, request IDs, external provider status and audit logs for administrative actions.
+Maintainability
+Feature-oriented frontend and service-oriented backend modules.
+Data quality
+Every external data display should identify source and timestamp where relevant.
+
+
+24. Analytics and KPIs
+KPI
+Definition
+Source
+Registered Fishers
+Count of Fisher users
+users
+Approved Fishers
+Count of approved Fisher users
+users
+Registered Buyers
+Count of Buyer users
+users
+Approved Buyers
+Count of approved Buyer users
+users
+Active Listings
+Catch listings currently active
+catch_listings
+Buyer Connections
+Purchase requests created / contact actions
+purchase_requests + listing contactCount
+Listings Sold/Closed
+Listings transitioned to sold/completed
+catch_listings + purchase_requests
+Daily Price Update Frequency
+Number of new/updated price records per day
+market_prices
+Weather Requests
+Number of normalized weather fetches/cache hits
+application telemetry
+Alert Engagement
+Views/clicks/acknowledgement if implemented
+analytics/notifications
+Approval Turnaround
+Time from registration to admin decision
+users audit data
+
+24.1 Admin dashboard cards
+Registered Fishers   Approved Fishers   Pending ApprovalsRegistered Buyers    Active Listings    Requests TodayPrices Updated Today Weather Status     Active Alerts
+
+25. Testing Strategy
+25.1 Unit tests
+Validators for registration, prices, listings and purchase requests.
+Price trend aggregation logic.
+Risk/sea-state classification helpers, if implemented.
+Permission and state-transition helpers.
+Provider response normalizers.
+25.2 Integration tests
+Registration → pending user record.
+Admin approval → approved user + notification + audit log.
+Approved Fisher → catch listing creation.
+Guest → public marketplace retrieval.
+Approved Buyer → purchase request.
+Fisher → request acceptance/rejection.
+Weather provider → normalized weather response/cache.
+Marine provider → normalized marine response/cache.
+25.3 End-to-end scenarios
+Scenario
+Expected result
+Guest searches a coastal city
+Location resolves; public weather/marine/price/listing data loads.
+Guest clicks List Catch
+Redirect to login/register; cannot create listing.
+Pending Fisher attempts POST listing
+403 blocked.
+Admin approves Fisher
+Status approved; notification and audit log generated.
+Approved Fisher publishes Tuna listing
+Listing appears publicly.
+Unapproved Buyer attempts purchase request
+403 blocked.
+Approved Buyer requests available quantity
+Request created; Fisher notified.
+Listing sold
+Future requests rejected; status no longer active.
+External weather API fails
+Cached data may display with stale indicator; no fabricated data.
+Active safety alert
+Visible on relevant location page and included in notification workflow if subscribed.
+
+25.4 Security testing
+Authentication bypass tests.
+Role escalation tests.
+Object-level authorization tests.
+NoSQL injection tests.
+XSS payload tests in listing/messages fields.
+Rate-limit tests.
+File/image validation tests.
+Sensitive-data exposure tests.
+
+26. Deployment and Environment Configuration
+26.1 Production topology
+Browser  ↓ HTTPSVercel / CDN (React)  ↓ HTTPS APIRender / Node.js Express service  ├── MongoDB Atlas  ├── Weather provider  └── Marine provider
+26.2 Environment variables
+NODE_ENV=productionPORT=5000MONGODB_URI=...JWT_SECRET=...WEATHER_PROVIDER_API_KEY=...MARINE_PROVIDER_API_KEY=...CLIENT_URL=https://...RATE_LIMIT_WINDOW_MS=...RATE_LIMIT_MAX=...
+26.3 Deployment checklist
+Create production MongoDB database and user.
+Configure network access securely.
+Set environment secrets in platform secret manager.
+Deploy backend.
+Deploy frontend.
+Configure CORS and frontend API base URL.
+Run smoke tests against production.
+Verify weather/marine provider calls.
+Verify public browsing without login.
+Verify approval workflow.
+Verify live URL and SSL.
+Confirm provider quotas/terms before final evaluation.
+
+27. Project Folder Structure
+fisher-portal/├── client/│   ├── src/│   │   ├── app/│   │   ├── components/│   │   ├── pages/│   │   ├── features/│   │   ├── services/│   │   ├── hooks/│   │   ├── context/│   │   ├── validators/│   │   └── utils/│   └── package.json│├── server/│   ├── src/│   │   ├── config/│   │   ├── middleware/│   │   ├── models/│   │   ├── controllers/│   │   ├── services/│   │   ├── routes/│   │   ├── validators/│   │   ├── integrations/│   │   ├── utils/│   │   └── app.js│   └── package.json│├── .env.example├── README.md└── docs/    └── technical-specification.docx
+
+28. Acceptance Criteria
+AC-01: A guest can search a location and view public weather, marine, market-price and catch information.
+AC-02: A Fisher can register but remains blocked from protected Fisher actions until approved by Admin.
+AC-03: A Buyer can register but remains blocked from purchase requests until approved by Admin.
+AC-04: Admin can approve/reject/suspend/deactivate Fisher and Buyer accounts.
+AC-05: Approved Fishers can create and manage catch listings.
+AC-06: Approved Buyers can search catch listings and submit purchase requests.
+AC-07: Purchase requests update both Buyer and Fisher views and create notifications.
+AC-08: Fish price records show price, market, species, currency/unit and update time.
+AC-09: Weather page presents current/forecast weather and clearly states source/freshness.
+AC-10: Marine page presents available wave/sea metrics and clearly states source/freshness.
+AC-11: Active safety alerts are prominently displayed for affected locations.
+AC-12: System never invents unavailable external data; provider failure results in an explicit unavailable/stale state.
+AC-13: MongoDB uses location coordinates suitable for global geospatial queries.
+AC-14: Protected APIs enforce authentication, approval status, role and resource ownership.
+AC-15: Admin actions are captured in audit logs.
+AC-16: Application is mobile-responsive and deployed to a live HTTPS URL for final evaluation.
+
+29. Future Enhancements
+Native mobile application for fishers.
+GPS-based boat tracking with explicit consent and safety controls.
+Official government fishing advisory integrations.
+Automated market-price ingestion from trusted feeds.
+Integrated secure messaging/chat.
+Online ordering, invoicing and payment/escrow.
+Real-time IoT ocean sensors and buoy data.
+Map-based catch and market discovery.
+Multilingual UI and localized fish terminology.
+Personalized alerts based on user location/preferences.
+Offline-first/PWA capabilities for poor-connectivity coastal areas.
+Advanced analytics and demand forecasting.
+
+30. External Data Sources and References
+30.1 Open-Meteo
+Weather documentation: https://open-meteo.com/en/docs
+Marine API documentation: https://open-meteo.com/en/docs/marine-weather-api
+Model update information: https://open-meteo.com/en/docs/model-updates
+Pricing/usage: https://open-meteo.com/en/pricing
+Terms: https://open-meteo.com/en/terms
+Open-Meteo documents latitude/longitude requests, current/forecast weather variables, global model coverage, marine wave variables and model update schedules. Free/open-access use is subject to its published non-commercial and rate-limit terms. [Open-Meteo docs/pricing/terms]
+30.2 Tomorrow.io
+Realtime Weather API: https://docs.tomorrow.io/reference/realtime-weather
+Free API Plan rate limits: https://support.tomorrow.io/hc/en-us/articles/20273728362644-Free-API-Plan-Rate-Limits
+Tomorrow.io documents a Realtime Weather endpoint that accepts latitude/longitude or supported place identifiers, and its published free-plan limits should be rechecked before production deployment. [Tomorrow.io Realtime Weather and Free Plan docs]
+30.3 MongoDB Geospatial Documentation
+Geospatial queries: https://www.mongodb.com/docs/manual/geospatial-queries/
+2dsphere indexes: https://www.mongodb.com/docs/manual/core/indexes/index-types/geospatial/2dsphere/
+MongoDB documentation confirms GeoJSON Point support, longitude-first coordinate ordering and 2dsphere indexes for spherical proximity queries. [MongoDB documentation]
+Implementation note
+Provider plans, API limits, model schedules and data availability can change. Treat the provider documentation as the source of truth at deployment time, not as a permanent project invariant.
+
+
+Appendix A - Final Architecture Snapshot
+ROLESGuest | Fisher | Buyer | AdminCORE DATAusers | profiles | locations | species | prices | weather | marine | alerts | listings | requests | notifications | auditPRIMARY FLOWSGuest browse → Location → Weather/Marine/Prices/ListingsFisher register → Admin approval → Dashboard → List catch → Receive requestsBuyer register → Admin approval → Marketplace → Purchase requestAdmin → Approvals + data management + moderation + reportsSECURITYAuthenticate → Approve → Authorize role → Authorize resource ownership → ExecuteEXTERNAL DATABackend-only provider access → Normalize → Cache → Timestamp → Display sourcePHASE 1 TRANSACTION BOUNDARYDiscovery + request/connection only; no online payment or settlement

@@ -1,0 +1,6 @@
+{
+  "name": "Fisher Community Market Access & Weather Safety Portal",
+  "description": "Global location-aware web portal combining fish market prices, catch marketplace, weather & marine safety advisories, buyer-fisher connections, and administration.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

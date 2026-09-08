@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-maritime-midnight: #102A36;
+  --color-maritime-atlantic: #173F4F;
+  --color-maritime-teal: #28666E;
+  --color-maritime-seaglass: #5C8D8A;
+  --color-maritime-brass: #B88A44;
+  --color-maritime-copper: #A85D3A;
+  --color-maritime-ivory: #F6F5F1;
+  --color-maritime-beige: #D8C9B5;
+  --color-maritime-forest: #315447;
+  --color-maritime-oxblood: #7D3035;
+}
+
+@layer base {
+  body {
+    background-color: #F6F5F1;
+    color: #102A36;
+  }
+  .dark body {
+    background-color: #0f172a;
+    color: #f8fafc;
+  }
+
+  ::selection {
+    background-color: #28666E;
+    color: #F6F5F1;
+  }
+  .dark ::selection {
+    background-color: #5C8D8A;
+    color: #ffffff;
+  }
+}
