@@ -2,6 +2,10 @@
 
 A modern, full-stack **Hyperlocal Community & Neighborhood Governance Platform** built with **React 19**, **TypeScript**, **Vite**, **Express**, **Tailwind CSS v4**, and **Lucide React Icons**.
 
+Live URL: https://full-stack-projects-2-5uic.onrender.com/
+
+**Note:** The application may take 1–2 minutes to load initially on the first visit.
+
 ---
 
 ## 📖 Overview
