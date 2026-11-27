@@ -2,6 +2,10 @@
 
 A modern, full-stack **Property Rental, Maintenance & Amenity Management System** built with **React 19**, **TypeScript**, **Vite**, **Express**, and **Tailwind CSS**.
 
+Live URL: https://full-stack-projects-clwk.onrender.com/
+
+**Note:** The application may take 1–2 minutes to load initially on the first visit.
+
 ---
 
 ## 📖 Overview
