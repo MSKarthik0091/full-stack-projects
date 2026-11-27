@@ -1,6 +1,7 @@
 # Fisher Community Market Access & Weather Safety Portal
 
 A modern, full-stack **Location-Aware Fisher Community, Market Access & Marine Weather Safety Platform** built with **React 19**, **TypeScript**, **Vite**, **Express**, **Tailwind CSS v4**, **Mongoose / MongoDB**, and **Lucide React Icons**.
+
 Live URL: https://full-stack-projects-3.onrender.com/
 ---
 
