@@ -4,7 +4,7 @@ A modern, full-stack **Location-Aware Fisher Community, Market Access & Marine W
 
 Live URL: https://full-stack-projects-3.onrender.com/
 
-**Note:** The application may take 1–2 minutes to load initially.
+**Note:** The application may take 1–2 minutes to load initially on the first visit.
 
 ## 📖 Overview
 
